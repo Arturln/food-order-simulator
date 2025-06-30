@@ -1,22 +1,15 @@
 package controller;
 
+import model.Order;
+import model.User;
+
 public interface Controllable {
 
-    String getMenu();
+    void showMenu();
 
-    void createUser(int id);
+    User createUser(String name, int phoneNumber);
 
-    String getUser(int id);
+    Order createOrder(User user, int dishID);
 
-    void updateUser(int id);
-
-    void deleteUser(int id);
-
-    void createOrder(int id);
-
-    void deleteOrder(int id);
-
-    String getOrderInfo(int id);
-
-    void addToOrder(int orderId, int menuId);
+    void getOrderData(Order order);
 }

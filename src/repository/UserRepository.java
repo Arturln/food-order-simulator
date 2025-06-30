@@ -1,8 +1,8 @@
-package service;
+package repository;
 
 import model.User;
 
-public interface UserService {
+public interface UserRepository {
 
     User createUser(String name, int phoneNumber);
 
@@ -11,5 +11,4 @@ public interface UserService {
     void updateUser(User user, String name, int phoneNumber);
 
     void deleteUser(User user);
-
 }

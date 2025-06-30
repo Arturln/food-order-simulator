@@ -2,6 +2,6 @@ package service;
 
 public interface MenuService {
 
-    String getMenu();
+    void getMenu();
 
 }

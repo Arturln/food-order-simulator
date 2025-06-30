@@ -1,63 +1,46 @@
 package controller.impl;
 
 import controller.Controllable;
+import model.Order;
+import model.User;
 import service.MenuService;
 import service.OrderService;
 import service.UserService;
-import service.menuServiceImpl.MenuServiceImpl;
-import service.orderServiceImpl.OrderServiceImpl;
-import service.userServiceImpl.UserServiceImpl;
+import service.impl.MenuServiceImpl;
+import service.impl.OrderServiceImpl;
+import service.impl.UserServiceImpl;
 
 public class Controller implements Controllable {
 
+    private UserService userService = new UserServiceImpl();
+    private MenuService menuService = new MenuServiceImpl();
+    private OrderService orderService = new OrderServiceImpl();
+
     public Controller() {
-        UserService userService = new UserServiceImpl();
-        MenuService menuService = new MenuServiceImpl();
-        OrderService orderService = new OrderServiceImpl();
     }
 
     @Override
-    public String getMenu() {
-        return "";
+    public void showMenu() {
+        menuService.getMenu();
     }
 
     @Override
-    public void createUser(int id) {
-
+    public User createUser(String name, int phoneNumber) {
+        return userService.createUser(name, phoneNumber);
     }
 
     @Override
-    public String getUser(int id) {
-        return "";
+    public Order createOrder(User user, int dishID) {
+        return orderService.createOrder(user, dishID);
     }
 
     @Override
-    public void updateUser(int id) {
-
+    public void getOrderData(Order order) {
+        System.out.println(
+                orderService.readOrder(order).getUser().getName()
+                + orderService.readOrder(order).getUser().getPhoneNumber()
+                + orderService.readOrder(order).getDish()
+        );
     }
-
-    @Override
-    public void deleteUser(int id) {
-
-    }
-
-    @Override
-    public void createOrder(int id) {
-
-    }
-
-    @Override
-    public void deleteOrder(int id) {
-
-    }
-
-    @Override
-    public String getOrderInfo(int id) {
-        return "";
-    }
-
-    @Override
-    public void addToOrder(int orderId, int menuId) {
-
-    }
+    #TODO addToOrder, getOrderDIses in getOrderData
 }
