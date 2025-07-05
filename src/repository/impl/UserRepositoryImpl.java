@@ -14,25 +14,44 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public User createUser(String name, int phoneNumber) {
-        User newUser = new User(userDataBase.size(), name, phoneNumber);
+    public User createUser(String name, long phoneNumber) {
+        User newUser = new User(name, phoneNumber);
+//        newUser.setId(newUser.getId());
         userDataBase.add(newUser);
         return newUser;
     }
 
     @Override
     public User readUser(User user) {
-        return userDataBase.get(user.getId());
+        for (User u : userDataBase) {
+            if (u.getId() == user.getId()) {
+                return user;
+            }
+        }
+        return null;
     }
 
     @Override
-    public void updateUser(User user, String name, int phoneNumber) {
-        userDataBase.get(user.getId()).setName(name);
-        userDataBase.get(user.getId()).setPhoneNumber(phoneNumber);
+    public User logIn(String name, long phoneNumber) {
+        return userDataBase.stream()
+                .filter(user -> user.getName().equals(name))
+                .filter(user -> user.getPhoneNumber() == phoneNumber)
+                .findFirst()
+                .orElse(null);
+    }
+
+    @Override
+    public void updateUser(User updatedUser) {
+        for (int i = 0; i < userDataBase.size() ; i++) {
+            User currentUser = userDataBase.get(i);
+            if (currentUser.getId() == updatedUser.getId()) {
+                userDataBase.set(i, updatedUser);
+            }
+        }
     }
 
     @Override
     public void deleteUser(User user) {
-        userDataBase.remove(user.getId());
+        userDataBase.removeIf(u -> u.getId() == user.getId());
     }
 }

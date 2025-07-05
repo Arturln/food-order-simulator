@@ -1,8 +1,9 @@
 package repository.impl;
 
-import model.Dish;
+import model.Food;
 import model.Order;
 import model.User;
+import repository.FoodRepository;
 import repository.OrderRepository;
 
 import java.util.ArrayList;
@@ -11,36 +12,43 @@ import java.util.List;
 public class OrderRepositoryImpl implements OrderRepository {
 
     private List<Order> orderDataBase = new ArrayList<>();
+    private FoodRepository foodRepository = new FoodRepositoryImpl();
     ;
 
     public OrderRepositoryImpl() {
     }
 
     @Override
-    public Order createOrder(User user, Dish dish) {
-        Order newOrder = new Order(orderDataBase.size(), user, dish);
+    public Order createOrder(User user, Food food) {
+        Order newOrder = new Order(user, food);
+//        newOrder.setUser(user);
         orderDataBase.add(newOrder);
-        newOrder.addDishToOrder(dish);
+        newOrder.addFoodToOrder(food);
         return newOrder;
     }
 
     @Override
-    public void addDishToOrder(Order order, Dish dish) {
-        order.addDishToOrder(dish);
+    public void addFoodToOrder(Order order, int foodID) {
+        order.addFoodToOrder(foodRepository.readFood(foodID));
     }
 
     @Override
-    public void getOrderDishes(Order order) {
-        order.getOrderDishes();
+    public List<Food> getFoodsInOrder(Order order) {
+        return order.getFoodsInOrder();
     }
 
     @Override
     public Order readOrder(Order order) {
-        return orderDataBase.get(order.getId());
+        for (Order o: orderDataBase) {
+            if (o.getId() == order.getId()) {
+                return o;
+            }
+        }
+        return null;
     }
 
     @Override
     public void deleteOrder(Order order) {
-        orderDataBase.remove(order.getId());
+        orderDataBase.removeIf(o -> o.getId() == order.getId());
     }
 }

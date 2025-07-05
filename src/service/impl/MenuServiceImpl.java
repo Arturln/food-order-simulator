@@ -1,15 +1,18 @@
 package service.impl;
 
-import repository.DishRepository;
-import repository.impl.DishRepositoryImpl;
+import model.Food;
+import repository.FoodRepository;
+import repository.impl.FoodRepositoryImpl;
 import service.MenuService;
+
+import java.util.List;
 
 public class MenuServiceImpl implements MenuService {
 
-    private DishRepository dishRepository = new DishRepositoryImpl();
+    private FoodRepository foodRepository = new FoodRepositoryImpl();
 
     @Override
-    public void getMenu() {
-         dishRepository.getMenu();
+    public List<Food> getMenu() {
+        return foodRepository.getMenu();
     }
 }

@@ -1,13 +1,16 @@
 package model;
 
+import java.util.Random;
+
 public class User {
+    Random random = new Random();
 
     private int id;
     private String name;
-    private int phoneNumber;
+    private long phoneNumber;
 
-    public User(int id, String name, int phoneNumber) {
-        this.id = id;
+    public User(String name, long phoneNumber) {
+        this.id = random.nextInt(1, 100000);
         this.name = name;
         this.phoneNumber = phoneNumber;
     }
@@ -28,11 +31,11 @@ public class User {
         this.name = name;
     }
 
-    public int getPhoneNumber() {
+    public long getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(long phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 }

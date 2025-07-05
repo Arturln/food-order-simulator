@@ -1,13 +1,13 @@
 package model;
 
-public class Dish {
+public class Food {
 
     private int id;
     private String name;
     private double cost;
     private double weight;
 
-    public Dish(int id, String name, double cost, double weight) {
+    public Food(int id, String name, double cost, double weight) {
         this.id = id;
         this.name = name;
         this.cost = cost;
@@ -44,5 +44,10 @@ public class Dish {
 
     public void setWeight(double weight) {
         this.weight = weight;
+    }
+
+    @Override
+    public String toString() {
+        return "Food ID: " + id + " Name: " + name + " Cost: " + cost + " Weight: " + weight;
     }
 }

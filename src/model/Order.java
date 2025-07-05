@@ -2,19 +2,22 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Order {
 
+    Random random = new Random();
+
     private int id;
     private User user;
-    private Dish dish;
-    private List<Dish> orderDishes;
+    private Food food;
+    private List<Food> orderFoods;
 
-    public Order(int id, User user, Dish dish) {
-        this.id = id;
+    public Order(User user, Food food) {
+        this.id = random.nextInt(1, 100000);
         this.user = user;
-        this.dish = dish;
-        this.orderDishes = new ArrayList<>();
+        this.food = food;
+        this.orderFoods = new ArrayList<>();
     }
 
     public int getId() {
@@ -33,21 +36,19 @@ public class Order {
         this.user = user;
     }
 
-    public Dish getDish() {
-        return dish;
+    public Food getFood() {
+        return food;
     }
 
-    public void setDish(Dish dish) {
-        this.dish = dish;
+    public void setFood(Food food) {
+        this.food = food;
     }
 
-    public void getOrderDishes() {
-        for (Dish d : orderDishes) {
-            System.out.println(d);
-        }
+    public List<Food> getFoodsInOrder() {
+        return orderFoods;
     }
 
-    public void addDishToOrder(Dish dish) {
-        orderDishes.add(dish);
+    public void addFoodToOrder(Food food) {
+        orderFoods.add(food);
     }
 }

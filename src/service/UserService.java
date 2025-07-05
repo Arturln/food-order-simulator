@@ -4,11 +4,13 @@ import model.User;
 
 public interface UserService {
 
-    User createUser(String name, int phoneNumber);
+    User createUser(String name, long phoneNumber);
 
     User readUser(User user);
 
-    void updateUser(User user, String name, int phoneNumber);
+    User logIn(String name, long phoneNumber);
+
+    void updateUser(User updatedUser);
 
     void deleteUser(User user);
 
