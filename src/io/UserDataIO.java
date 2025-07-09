@@ -32,7 +32,7 @@ public class UserDataIO {
     public List<User> readFile() {
         try {
             String ordersFromFileString = Files.readString(filePath);
-            Type orderListType = new TypeToken<List<Order>>() {}.getType();
+            Type orderListType = new TypeToken<List<User>>() {}.getType();
             return gson.fromJson(ordersFromFileString, orderListType);
         } catch (IOException e) {
             throw  new RuntimeException(e.getMessage());

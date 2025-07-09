@@ -42,8 +42,8 @@ public class UserRepositoryImpl implements UserRepository {
     public User logIn(String name, long phoneNumber) {
         return userDataBase.stream()
                 .filter(Objects::nonNull)
-                .filter(user -> name.equals(user.getName()))
-                .filter(user -> user.getPhoneNumber() == phoneNumber)
+                .filter(user -> user.getName().equals(name))
+                .filter(user -> Objects.equals(user.getPhoneNumber(), phoneNumber))
                 .findAny().orElseThrow(() -> new RuntimeException("User not found"));
     }
 
