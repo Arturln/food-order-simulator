@@ -1,27 +1,24 @@
-package src.ui.impl;
+package ui.impl;
 
 import exceptions.InvalidNameException;
 import exceptions.InvalidNumberException;
-import src.model.Order;
-import src.model.User;
-import src.ui.CreateOrderUI;
-import src.ui.ScannerUI;
-import src.ui.SecondMenuUI;
-import src.ui.MainMenuUI;
-import src.utils.Constants;
+import model.Order;
+import model.User;
+import ui.*;
 
 public class MainMenuUIImpl implements MainMenuUI {
 
     private ScannerUI scannerUI = new ScannerUIImpl();
-    private SecondMenuUI secondMenuUI = new SecondMenuUIImpl();
+    private RegisterScreen registerScreen = new RegisterScreenImpl();
+    private LogInScreen logInScreen = new LogInScreenImpl();
+    private UpdateScreen updateScreen = new UpdateScreenImpl();
     private CreateOrderUI createOrderUI = new CreateOrderUIImpl();
     private int userChoice;
     private User user;
     private Order order;
 
 
-    @Override
-    public void startMainMenu() {
+    public void start() {
 
         System.out.println("Welcome to Mystery Shack\n" +
                 "To register in our restaurant input 1\n" +
@@ -35,7 +32,7 @@ public class MainMenuUIImpl implements MainMenuUI {
                 case Constants.REGISTER:
                     while (true) {
                         try {
-                            user = secondMenuUI.registerUser();
+                            user = registerScreen.registerUser();
                             System.out.println("Register is successful");
                             System.out.println(user.getId() + " " + user.getName());
                             System.out.println(user.getName() + " " + user.getPhoneNumber());
@@ -52,7 +49,7 @@ public class MainMenuUIImpl implements MainMenuUI {
                 case Constants.LOGIN:
                     while (true) {
                         try {
-                            user = secondMenuUI.logIn();
+                            user = logInScreen.logIn();
                             System.out.println("LogIn is successful");
                             order = createOrderUI.createOrder(user);
                             break;
@@ -66,7 +63,7 @@ public class MainMenuUIImpl implements MainMenuUI {
                 case Constants.UPDATE_USER_PROFILE:
                     while (true) {
                         try {
-                            secondMenuUI.updateUser(user);
+                            updateScreen.updateUser(user);
                             break;
                         } catch (InvalidNameException e) {
                             System.out.println(e.getMessage());
@@ -75,7 +72,7 @@ public class MainMenuUIImpl implements MainMenuUI {
                         }
                     }
                     break;
-                case Constants.OUT_FROM_RESTAURANT:
+                case Constants.LOG_OUT:
                     return;
             }
         }

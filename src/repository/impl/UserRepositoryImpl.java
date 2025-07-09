@@ -1,7 +1,7 @@
-package src.repository.impl;
+package repository.impl;
 
-import src.repository.UserRepository;
-import src.model.User;
+import repository.UserRepository;
+import model.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +16,7 @@ public class UserRepositoryImpl implements UserRepository {
     @Override
     public User createUser(String name, long phoneNumber) {
         User newUser = new User(name, phoneNumber);
-//        newUser.setId(newUser.getId());
+        newUser.setId(newUser.getId());
         userDataBase.add(newUser);
         return newUser;
     }

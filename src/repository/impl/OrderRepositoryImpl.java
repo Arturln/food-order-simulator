@@ -1,10 +1,10 @@
-package src.repository.impl;
+package repository.impl;
 
-import src.model.Food;
-import src.model.Order;
-import src.model.User;
-import src.repository.FoodRepository;
-import src.repository.OrderRepository;
+import model.Food;
+import model.Order;
+import model.User;
+import repository.FoodRepository;
+import repository.OrderRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +21,7 @@ public class OrderRepositoryImpl implements OrderRepository {
     @Override
     public Order createOrder(User user, Food food) {
         Order newOrder = new Order(user, food);
-//        newOrder.setUser(user);
+        newOrder.setUser(user);
         orderDataBase.add(newOrder);
         newOrder.addFoodToOrder(food);
         return newOrder;

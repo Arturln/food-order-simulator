@@ -1,6 +1,6 @@
-package src.service;
+package service;
 
-import src.model.User;
+import model.User;
 
 public interface UserService {
 

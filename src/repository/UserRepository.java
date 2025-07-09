@@ -1,6 +1,6 @@
-package src.repository;
+package repository;
 
-import src.model.User;
+import model.User;
 
 public interface UserRepository {
 

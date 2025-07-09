@@ -1,6 +1,6 @@
-package src.controller;
+package controller;
 
-import src.model.User;
+import model.User;
 
 public interface UserController {
 

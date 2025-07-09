@@ -1,6 +1,6 @@
-package src.ui;
+package ui;
 
-import src.model.User;
+import model.User;
 
 public interface UpdateUserUI {
 

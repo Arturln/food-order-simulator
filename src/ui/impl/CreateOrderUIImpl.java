@@ -1,15 +1,15 @@
-package src.ui.impl;
+package ui.impl;
 
-import src.controller.MenuController;
-import src.controller.OrderController;
-import src.controller.impl.MenuControllerImpl;
-import src.controller.impl.OrderControllerImpl;
-import src.model.Food;
-import src.model.Order;
-import src.model.User;
-import src.ui.CreateOrderUI;
-import src.ui.ScannerUI;
-import src.utils.Constants;
+import controller.MenuController;
+import controller.OrderController;
+import controller.impl.MenuControllerImpl;
+import controller.impl.OrderControllerImpl;
+import model.Food;
+import model.Order;
+import model.User;
+import ui.CreateOrderUI;
+import ui.ScannerUI;
+import ui.Constants;
 
 public class CreateOrderUIImpl implements CreateOrderUI {
 

@@ -1,12 +1,12 @@
-package src.controller.impl;
+package controller.impl;
 
-import src.controller.OrderController;
-import src.model.Food;
-import src.model.Order;
-import src.model.User;
-import src.service.OrderService;
-import src.service.impl.OrderServiceImpl;
-import src.utils.DateTime;
+import controller.OrderController;
+import model.Food;
+import model.Order;
+import model.User;
+import service.OrderService;
+import service.impl.OrderServiceImpl;
+import utils.DateTime;
 
 import java.util.List;
 
@@ -35,10 +35,10 @@ public class OrderControllerImpl implements OrderController {
         System.out.println("Order number: " + order.getId());
         System.out.println(dateTime.getLocalDateTime());
         System.out.println(
-                orderService.readOrder(order).getUser().getName() + " \n"
-                        + orderService.readOrder(order).getUser().getPhoneNumber() + " \n"
+                order.getUser().getName() + " \n"
+                        + order.getUser().getPhoneNumber() + " \n"
         );
-        orderService.readOrder(order).getFoodsInOrder().forEach(food ->
+        order.getFoodsInOrder().forEach(food ->
                 System.out.printf("%s, %.1f $\n",
                         food.getName(),
                         food.getCost())

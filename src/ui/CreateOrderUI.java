@@ -1,7 +1,7 @@
-package src.ui;
+package ui;
 
-import src.model.Order;
-import src.model.User;
+import model.Order;
+import model.User;
 
 public interface CreateOrderUI {
 

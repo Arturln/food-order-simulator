@@ -1,14 +1,12 @@
-package src;
 
-import src.ui.MainMenuUI;
-import src.ui.impl.MainMenuUIImpl;
+import app.Application;
 
 public class Main {
     public static void main(String[] args) {
 
-        MainMenuUI mainMenuUI = new MainMenuUIImpl();
+        Application application = new Application();
 
-        mainMenuUI.startMainMenu();
+        application.start();
 
     }
 }

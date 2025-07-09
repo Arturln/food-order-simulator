@@ -1,9 +1,9 @@
-package src.controller.impl;
+package controller.impl;
 
-import src.controller.MenuController;
-import src.model.Food;
-import src.service.MenuService;
-import src.service.impl.MenuServiceImpl;
+import controller.MenuController;
+import model.Food;
+import service.MenuService;
+import service.impl.MenuServiceImpl;
 
 import java.util.List;
 

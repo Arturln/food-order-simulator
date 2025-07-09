@@ -1,6 +1,6 @@
-package src.ui;
+package ui;
 
 public interface MainMenuUI {
 
-    void startMainMenu();
+    void start();
 }

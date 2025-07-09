@@ -1,9 +1,9 @@
-package src.service.impl;
+package service.impl;
 
-import src.model.Food;
-import src.repository.FoodRepository;
-import src.repository.impl.FoodRepositoryImpl;
-import src.service.MenuService;
+import model.Food;
+import repository.FoodRepository;
+import repository.impl.FoodRepositoryImpl;
+import service.MenuService;
 
 import java.util.List;
 

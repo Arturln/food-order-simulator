@@ -1,9 +1,9 @@
-package src.ui.impl;
+package ui.impl;
 
-import src.controller.UserController;
-import src.controller.impl.UserControllerImpl;
-import src.model.User;
-import src.ui.UpdateUserUI;
+import controller.UserController;
+import controller.impl.UserControllerImpl;
+import model.User;
+import ui.UpdateUserUI;
 
 public class UpdateUserUIImpl implements UpdateUserUI {
 

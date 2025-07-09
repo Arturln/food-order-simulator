@@ -1,9 +1,9 @@
-package src.service.impl;
+package service.impl;
 
-import src.model.User;
-import src.repository.UserRepository;
-import src.repository.impl.UserRepositoryImpl;
-import src.service.UserService;
+import model.User;
+import repository.UserRepository;
+import repository.impl.UserRepositoryImpl;
+import service.UserService;
 
 public class UserServiceImpl implements UserService {
 

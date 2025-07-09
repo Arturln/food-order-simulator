@@ -1,4 +1,4 @@
-package src.utils;
+package utils;
 
 import exceptions.InvalidNameException;
 import exceptions.InvalidNumberException;

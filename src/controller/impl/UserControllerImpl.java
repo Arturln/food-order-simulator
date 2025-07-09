@@ -1,9 +1,9 @@
-package src.controller.impl;
+package controller.impl;
 
-import src.controller.UserController;
-import src.model.User;
-import src.service.UserService;
-import src.service.impl.UserServiceImpl;
+import controller.UserController;
+import model.User;
+import service.UserService;
+import service.impl.UserServiceImpl;
 
 public class UserControllerImpl implements UserController {
 
