@@ -1,14 +1,14 @@
-package ui.impl;
+package src.ui.impl;
 
 import exceptions.InvalidNameException;
 import exceptions.InvalidNumberException;
-import model.Order;
-import model.User;
-import ui.CreateOrderUI;
-import ui.ScannerUI;
-import ui.SecondMenuUI;
-import ui.MainMenuUI;
-import utils.Constants;
+import src.model.Order;
+import src.model.User;
+import src.ui.CreateOrderUI;
+import src.ui.ScannerUI;
+import src.ui.SecondMenuUI;
+import src.ui.MainMenuUI;
+import src.utils.Constants;
 
 public class MainMenuUIImpl implements MainMenuUI {
 

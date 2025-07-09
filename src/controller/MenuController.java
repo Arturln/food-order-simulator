@@ -1,6 +1,6 @@
-package controller;
+package src.controller;
 
-import model.Food;
+import src.model.Food;
 
 import java.util.List;
 

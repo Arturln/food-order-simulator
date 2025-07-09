@@ -1,6 +1,6 @@
-package service;
+package src.service;
 
-import model.Food;
+import src.model.Food;
 
 import java.util.List;
 

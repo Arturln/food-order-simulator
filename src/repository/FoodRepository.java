@@ -1,6 +1,6 @@
-package repository;
+package src.repository;
 
-import model.Food;
+import src.model.Food;
 
 import java.util.List;
 

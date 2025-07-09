@@ -1,10 +1,10 @@
-package repository.impl;
+package src.repository.impl;
 
-import model.Food;
-import model.Order;
-import model.User;
-import repository.FoodRepository;
-import repository.OrderRepository;
+import src.model.Food;
+import src.model.Order;
+import src.model.User;
+import src.repository.FoodRepository;
+import src.repository.OrderRepository;
 
 import java.util.ArrayList;
 import java.util.List;

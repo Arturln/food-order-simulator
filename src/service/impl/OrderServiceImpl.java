@@ -1,15 +1,15 @@
-package service.impl;
+package src.service.impl;
 
-import model.Food;
-import model.Order;
-import model.User;
-import repository.FoodRepository;
-import repository.OrderRepository;
-import repository.UserRepository;
-import repository.impl.FoodRepositoryImpl;
-import repository.impl.OrderRepositoryImpl;
-import repository.impl.UserRepositoryImpl;
-import service.OrderService;
+import src.model.Food;
+import src.model.Order;
+import src.model.User;
+import src.repository.FoodRepository;
+import src.repository.OrderRepository;
+import src.repository.UserRepository;
+import src.repository.impl.FoodRepositoryImpl;
+import src.repository.impl.OrderRepositoryImpl;
+import src.repository.impl.UserRepositoryImpl;
+import src.service.OrderService;
 
 import java.util.List;
 

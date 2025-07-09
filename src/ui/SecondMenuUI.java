@@ -1,8 +1,8 @@
-package ui;
+package src.ui;
 
 import exceptions.InvalidNameException;
 import exceptions.InvalidNumberException;
-import model.User;
+import src.model.User;
 
 public interface SecondMenuUI {
 

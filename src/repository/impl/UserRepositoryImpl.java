@@ -1,7 +1,7 @@
-package repository.impl;
+package src.repository.impl;
 
-import repository.UserRepository;
-import model.User;
+import src.repository.UserRepository;
+import src.model.User;
 
 import java.util.ArrayList;
 import java.util.List;

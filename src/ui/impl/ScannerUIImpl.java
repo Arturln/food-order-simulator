@@ -1,6 +1,6 @@
-package ui.impl;
+package src.ui.impl;
 
-import ui.ScannerUI;
+import src.ui.ScannerUI;
 
 import java.util.Scanner;
 

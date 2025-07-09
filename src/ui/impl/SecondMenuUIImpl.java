@@ -1,15 +1,15 @@
-package ui.impl;
+package src.ui.impl;
 
-import controller.UserController;
-import controller.impl.UserControllerImpl;
+import src.controller.UserController;
+import src.controller.impl.UserControllerImpl;
 import exceptions.InvalidNameException;
 import exceptions.InvalidNumberException;
-import model.User;
-import ui.ScannerUI;
-import ui.SecondMenuUI;
-import ui.UpdateUserUI;
-import utils.Constants;
-import utils.Regex;
+import src.model.User;
+import src.ui.ScannerUI;
+import src.ui.SecondMenuUI;
+import src.ui.UpdateUserUI;
+import src.utils.Constants;
+import src.utils.Regex;
 
 public class SecondMenuUIImpl implements SecondMenuUI {
 

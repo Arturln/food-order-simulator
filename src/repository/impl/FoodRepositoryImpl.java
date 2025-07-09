@@ -1,7 +1,7 @@
-package repository.impl;
+package src.repository.impl;
 
-import model.Food;
-import repository.FoodRepository;
+import src.model.Food;
+import src.repository.FoodRepository;
 
 import java.util.ArrayList;
 import java.util.Arrays;
