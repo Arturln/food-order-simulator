@@ -14,9 +14,9 @@ public class UpdateScreenImpl implements UpdateScreen {
     private Regex regex = new Regex();
 
     public void updateUser(User user) throws exceptions.InvalidNameException, exceptions.InvalidNumberException {
-        System.out.println("To change your name input 1");
-        System.out.println("To change your phone number input 2");
-        System.out.println("To out from changing input 0");
+        System.out.println("1 - to change your name");
+        System.out.println("2 - to change your phone number");
+        System.out.println("0 - to out from changing");
 
         while (true) {
 

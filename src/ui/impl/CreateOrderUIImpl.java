@@ -8,20 +8,20 @@ import model.Food;
 import model.Order;
 import model.User;
 import ui.CreateOrderUI;
-import ui.ScannerUI;
 import ui.Constants;
+import utils.ScannerUI;
 
 public class CreateOrderUIImpl implements CreateOrderUI {
 
     private MenuController menuController = new MenuControllerImpl();
     private OrderController orderController = new OrderControllerImpl();
-    private ScannerUI scannerUI = new ScannerUIImpl();
+    private ScannerUI scannerUI = new ScannerUI();
 
     @Override
     public Order createOrder(User user) {
 
         System.out.println("Choose dish, input number to add to order");
-        System.out.println("Input 0 to finish order or out from choosing food");
+        System.out.println("0 - to finish order or out from choosing food");
 
         for (Food food : menuController.getMenu()) {
             System.out.println(food.toString());

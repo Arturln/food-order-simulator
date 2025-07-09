@@ -5,10 +5,11 @@ import exceptions.InvalidNumberException;
 import model.Order;
 import model.User;
 import ui.*;
+import utils.ScannerUI;
 
 public class MainMenuUIImpl implements MainMenuUI {
 
-    private ScannerUI scannerUI = new ScannerUIImpl();
+    private ScannerUI scannerUI = new ScannerUI();
     private RegisterScreen registerScreen = new RegisterScreenImpl();
     private LogInScreen logInScreen = new LogInScreenImpl();
     private UpdateScreen updateScreen = new UpdateScreenImpl();
@@ -21,10 +22,11 @@ public class MainMenuUIImpl implements MainMenuUI {
     public void start() {
 
         System.out.println("Welcome to Mystery Shack\n" +
-                "To register in our restaurant input 1\n" +
-                "To LogIn in our restaurant input 2\n" +
-                "If you want to update your profile input 3\n" +
-                "To out from our Mystery Shack input 0");
+                "Input:\n" +
+                "1 - to register in our restaurant\n" +
+                "2 - to logIn in our restaurant input 2\n" +
+                "3 - to update your profile\n" +
+                "0 - to out from our Mystery Shack");
         while (true) {
             System.out.println("Choose!");
             userChoice = scannerUI.userChoice();
@@ -37,6 +39,8 @@ public class MainMenuUIImpl implements MainMenuUI {
                             System.out.println(user.getId() + " " + user.getName());
                             System.out.println(user.getName() + " " + user.getPhoneNumber());
                             order = createOrderUI.createOrder(user);
+                            System.out.println("3 - to update your profile\n" +
+                                    "0 - to out from our Mystery Shack");
                             break;
                         } catch (InvalidNameException e) {
                             System.out.println(e.getMessage());

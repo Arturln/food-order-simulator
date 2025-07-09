@@ -32,11 +32,12 @@ public class OrderControllerImpl implements OrderController {
 
     @Override
     public void getOrderData(Order order) {
+        User buffUser = order.getUser();
         System.out.println("Order number: " + order.getId());
         System.out.println(dateTime.getLocalDateTime());
         System.out.println(
-                order.getUser().getName() + " \n"
-                        + order.getUser().getPhoneNumber() + " \n"
+                buffUser.getName() + " \n"
+                        + buffUser.getPhoneNumber() + " \n"
         );
         order.getFoodsInOrder().forEach(food ->
                 System.out.printf("%s, %.1f $\n",
