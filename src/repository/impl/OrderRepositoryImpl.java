@@ -1,5 +1,6 @@
 package repository.impl;
 
+import io.OrdersIO;
 import model.Food;
 import model.Order;
 import model.User;
@@ -13,7 +14,6 @@ public class OrderRepositoryImpl implements OrderRepository {
 
     private List<Order> orderDataBase = new ArrayList<>();
     private FoodRepository foodRepository = new FoodRepositoryImpl();
-    ;
 
     public OrderRepositoryImpl() {
     }
@@ -21,7 +21,7 @@ public class OrderRepositoryImpl implements OrderRepository {
     @Override
     public Order createOrder(User user, Food food) {
         Order newOrder = new Order(user, food);
-        newOrder.setUser(user);
+//        newOrder.setUser(user);
         orderDataBase.add(newOrder);
         newOrder.addFoodToOrder(food);
         return newOrder;

@@ -1,0 +1,24 @@
+[
+  {
+    "id": 23749,
+    "user": {
+      "id": 32872,
+      "name": "Artur",
+      "phoneNumber": 375333727657
+    },
+    "food": {
+      "id": 2,
+      "name": "fish Dorado",
+      "cost": 21.0,
+      "weight": 470.0
+    },
+    "orderFoods": [
+      {
+        "id": 2,
+        "name": "fish Dorado",
+        "cost": 21.0,
+        "weight": 470.0
+      }
+    ]
+  }
+]

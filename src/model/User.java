@@ -3,7 +3,7 @@ package model;
 import java.util.Random;
 
 public class User {
-    Random random = new Random();
+    private  transient Random random = new Random();
 
     private int id;
     private String name;

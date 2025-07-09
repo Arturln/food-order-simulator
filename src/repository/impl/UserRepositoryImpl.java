@@ -1,5 +1,6 @@
 package repository.impl;
 
+import io.UserDataIO;
 import repository.UserRepository;
 import model.User;
 
@@ -8,7 +9,8 @@ import java.util.List;
 
 public class UserRepositoryImpl implements UserRepository {
 
-    private List<User> userDataBase = new ArrayList<>();
+    private UserDataIO userDataIO = new UserDataIO();
+    private List<User> userDataBase = userDataIO.readFile();
 
     public UserRepositoryImpl() {
     }
@@ -16,8 +18,9 @@ public class UserRepositoryImpl implements UserRepository {
     @Override
     public User createUser(String name, long phoneNumber) {
         User newUser = new User(name, phoneNumber);
-        newUser.setId(newUser.getId());
+//        newUser.setId(newUser.getId());
         userDataBase.add(newUser);
+        userDataIO.writeFile(userDataBase);
         return newUser;
     }
 
@@ -36,8 +39,7 @@ public class UserRepositoryImpl implements UserRepository {
         return userDataBase.stream()
                 .filter(user -> user.getName().equals(name))
                 .filter(user -> user.getPhoneNumber() == phoneNumber)
-                .findFirst()
-                .orElse(null);
+                .findAny().get();
     }
 
     @Override

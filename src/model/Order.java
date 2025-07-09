@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class Order {
 
-    Random random = new Random();
+    private transient Random random = new Random();
 
     private int id;
     private User user;
