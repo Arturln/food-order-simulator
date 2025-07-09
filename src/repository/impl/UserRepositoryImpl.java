@@ -6,6 +6,7 @@ import model.User;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class UserRepositoryImpl implements UserRepository {
 
@@ -17,6 +18,9 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public User createUser(String name, long phoneNumber) {
+        if (userDataBase == null) {
+            userDataBase = new ArrayList<>(); // Инициализация, если вдруг null
+        }
         User newUser = new User(name, phoneNumber);
 //        newUser.setId(newUser.getId());
         userDataBase.add(newUser);
@@ -37,14 +41,15 @@ public class UserRepositoryImpl implements UserRepository {
     @Override
     public User logIn(String name, long phoneNumber) {
         return userDataBase.stream()
-                .filter(user -> user.getName().equals(name))
+                .filter(Objects::nonNull)
+                .filter(user -> name.equals(user.getName()))
                 .filter(user -> user.getPhoneNumber() == phoneNumber)
-                .findAny().get();
+                .findAny().orElseThrow(() -> new RuntimeException("User not found"));
     }
 
     @Override
     public void updateUser(User updatedUser) {
-        for (int i = 0; i < userDataBase.size() ; i++) {
+        for (int i = 0; i < userDataBase.size(); i++) {
             User currentUser = userDataBase.get(i);
             if (currentUser.getId() == updatedUser.getId()) {
                 userDataBase.set(i, updatedUser);
