@@ -1,5 +1,7 @@
 package repository.impl;
 
+import io.FoodDataIO;
+import io.IO;
 import model.Food;
 import repository.FoodRepository;
 
@@ -9,6 +11,7 @@ import java.util.List;
 
 public class FoodRepositoryImpl implements FoodRepository {
 
+    private IO<Food> foodIO = new FoodDataIO();
     private List<Food> foodDataBase = new ArrayList<>(Arrays.asList(
             new Food(1, "steak T-Bone", 15.4, 340),
             new Food(2, "fish Dorado", 21, 470),
@@ -19,7 +22,6 @@ public class FoodRepositoryImpl implements FoodRepository {
             new Food(7, "coffee", 2.3, 170),
             new Food(8, "orange juice", 3.4, 190)
     ));
-    ;
 
     public FoodRepositoryImpl() {
     }

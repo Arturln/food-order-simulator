@@ -13,27 +13,29 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserDataIO {
+public class UserDataIO implements IO<User>{
 
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
     Path filePath = Path.of("users.json");
 
+    @Override
     public void writeFile(List<User> data) {
 
-        String ordersJson = gson.toJson(data);
+        String usersJson = gson.toJson(data);
 
         try {
-            Files.writeString(filePath, ordersJson);
+            Files.writeString(filePath, usersJson);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
+    @Override
     public List<User> readFile() {
         try {
-            String ordersFromFileString = Files.readString(filePath);
-            Type orderListType = new TypeToken<List<User>>() {}.getType();
-            return gson.fromJson(ordersFromFileString, orderListType);
+            String usersFromFileString = Files.readString(filePath);
+            Type userListType = new TypeToken<List<User>>() {}.getType();
+            return gson.fromJson(usersFromFileString, userListType);
         } catch (IOException e) {
             throw  new RuntimeException(e.getMessage());
         }

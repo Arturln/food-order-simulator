@@ -1,5 +1,6 @@
 package repository.impl;
 
+import io.IO;
 import io.UserDataIO;
 import repository.UserRepository;
 import model.User;
@@ -10,7 +11,7 @@ import java.util.Objects;
 
 public class UserRepositoryImpl implements UserRepository {
 
-    private UserDataIO userDataIO = new UserDataIO();
+    private IO<User> userDataIO = new UserDataIO();
     private List<User> userDataBase = userDataIO.readFile();
 
     public UserRepositoryImpl() {
@@ -22,7 +23,6 @@ public class UserRepositoryImpl implements UserRepository {
             userDataBase = new ArrayList<>(); // Инициализация, если вдруг null
         }
         User newUser = new User(name, phoneNumber);
-//        newUser.setId(newUser.getId());
         userDataBase.add(newUser);
         userDataIO.writeFile(userDataBase);
         return newUser;

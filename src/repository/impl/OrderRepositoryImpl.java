@@ -21,7 +21,6 @@ public class OrderRepositoryImpl implements OrderRepository {
     @Override
     public Order createOrder(User user, Food food) {
         Order newOrder = new Order(user, food);
-//        newOrder.setUser(user);
         orderDataBase.add(newOrder);
         newOrder.addFoodToOrder(food);
         return newOrder;
