@@ -23,7 +23,7 @@ public class OrderRepositoryImpl implements OrderRepository {
     @Override
     public Order createOrder(User user, Food food) {
         if (orderDataBase == null) {
-            orderDataBase = new ArrayList<>(); // Инициализация, если вдруг null
+            orderDataBase = new ArrayList<>();
         }
         Order newOrder = new Order(user, food);
         orderDataBase.add(newOrder);

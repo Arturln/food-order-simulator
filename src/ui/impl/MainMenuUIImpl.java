@@ -2,6 +2,8 @@ package ui.impl;
 
 import exceptions.InvalidNameException;
 import exceptions.InvalidNumberException;
+import exceptions.ExistUserException;
+import exceptions.NotExistUserException;
 import model.Order;
 import model.User;
 import ui.*;
@@ -24,7 +26,7 @@ public class MainMenuUIImpl implements MainMenuUI {
         System.out.println("Welcome to Mystery Shack\n" +
                 "Input:\n" +
                 "1 - to register in our restaurant\n" +
-                "2 - to logIn in our restaurant input 2\n" +
+                "2 - to logIn in our restaurant\n" +
                 "3 - to update your profile\n" +
                 "0 - to out from our Mystery Shack");
         while (true) {
@@ -45,6 +47,8 @@ public class MainMenuUIImpl implements MainMenuUI {
                         } catch (InvalidNameException e) {
                             System.out.println(e.getMessage());
                         } catch (InvalidNumberException e) {
+                            System.out.println(e.getMessage());
+                        } catch (ExistUserException e) {
                             System.out.println(e.getMessage());
                         }
                     }

@@ -8,10 +8,12 @@ public interface UserService {
 
     User readUser(int userID);
 
-    User logIn(String name, long phoneNumber);
+    User checkPhoneNumber(String name, long phoneNumber);
 
     void updateUser(User updatedUser);
 
     void deleteUser(int userID);
+
+    public boolean isUserDataEmpty();
 
 }

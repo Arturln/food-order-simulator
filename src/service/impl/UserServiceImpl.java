@@ -1,5 +1,6 @@
 package service.impl;
 
+import exceptions.NotExistUserException;
 import model.User;
 import repository.UserRepository;
 import repository.impl.UserRepositoryImpl;
@@ -15,8 +16,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User logIn(String name, long phoneNumber) {
-        return userRepository.logIn(name, phoneNumber);
+    public User checkPhoneNumber(String name, long phoneNumber) throws NotExistUserException {
+        return userRepository.checkPhoneNumber(name, phoneNumber);
     }
 
     @Override
@@ -34,5 +35,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public void deleteUser(int userID) {
         userRepository.deleteUser(userID);
+    }
+
+    @Override
+    public boolean isUserDataEmpty() {
+        return userRepository.isEmpty();
     }
 }

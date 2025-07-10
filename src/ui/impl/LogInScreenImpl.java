@@ -1,5 +1,8 @@
 package ui.impl;
 
+import exceptions.InvalidNameException;
+import exceptions.InvalidNumberException;
+import exceptions.NotExistUserException;
 import controller.UserController;
 import controller.impl.UserControllerImpl;
 import model.User;
@@ -13,7 +16,7 @@ public class LogInScreenImpl implements LogInScreen {
     private UserController userController = new UserControllerImpl();
     private Regex regex = new Regex();
 
-    public User logIn() throws exceptions.InvalidNameException, exceptions.InvalidNumberException {
+    public User logIn() throws InvalidNameException, InvalidNumberException {
         System.out.println("Input your name");
         String name = regex.nameValidation(scannerUI.scanUserName());
         System.out.println("Input your phoneNumber");

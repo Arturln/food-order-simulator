@@ -20,7 +20,7 @@ public class UserRepositoryImpl implements UserRepository {
     @Override
     public User createUser(String name, long phoneNumber) {
         if (userDataBase == null) {
-            userDataBase = new ArrayList<>(); // Инициализация, если вдруг null
+            userDataBase = new ArrayList<>();
         }
         User newUser = new User(name, phoneNumber);
         userDataBase.add(newUser);
@@ -39,13 +39,16 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public User logIn(String name, long phoneNumber) {
+    public User checkPhoneNumber(String name, long phoneNumber) {
         return userDataBase.stream()
                 .filter(Objects::nonNull)
-                .filter(user -> user.getName().equals(name))
+//                .filter(user -> user.getName().equals(name))
                 .filter(user -> Objects.equals(user.getPhoneNumber(), phoneNumber))
-                .findAny().orElseThrow(() -> new RuntimeException("User not found"));
+                .findAny()
+                .orElse(null);
     }
+
+
 
     @Override
     public void updateUser(User updatedUser) {
@@ -62,5 +65,10 @@ public class UserRepositoryImpl implements UserRepository {
     public void deleteUser(int userID) {
         userDataBase.removeIf(u -> u.getId() == userID);
         userDataIO.writeFile(userDataBase);
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return userDataBase == null;
     }
 }

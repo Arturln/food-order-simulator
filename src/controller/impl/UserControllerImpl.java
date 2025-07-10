@@ -1,6 +1,7 @@
 package controller.impl;
 
 import controller.UserController;
+import exceptions.ExistUserException;
 import model.User;
 import service.UserService;
 import service.impl.UserServiceImpl;
@@ -10,7 +11,12 @@ public class UserControllerImpl implements UserController {
     UserService userService = new UserServiceImpl();
 
     @Override
-    public User createUser(String name, long phoneNumber) {
+    public User createUser(String name, long phoneNumber) throws ExistUserException {
+        if (!userService.isUserDataEmpty()) {
+            if (userService.checkPhoneNumber(name, phoneNumber) != null) {
+                throw new ExistUserException("Can't create user with this phone number, because the phone number already exist");
+            }
+        }
         return userService.createUser(name, phoneNumber);
     }
 
@@ -21,6 +27,6 @@ public class UserControllerImpl implements UserController {
 
     @Override
     public User logIn(String name, long phoneNumber) {
-        return userService.logIn(name, phoneNumber);
+        return userService.checkPhoneNumber(name, phoneNumber);
     }
 }
