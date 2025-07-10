@@ -48,6 +48,16 @@ public class UserRepositoryImpl implements UserRepository {
                 .orElse(null);
     }
 
+    @Override
+    public User logIn(String name, long phoneNumber) {
+        return userDataBase.stream()
+                .filter(Objects::nonNull)
+                .filter(user -> user.getName().equals(name))
+                .filter(user -> Objects.equals(user.getPhoneNumber(), phoneNumber))
+                .findAny()
+                .orElse(null);
+    }
+
 
 
     @Override

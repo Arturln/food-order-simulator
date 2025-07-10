@@ -27,6 +27,6 @@ public class UserControllerImpl implements UserController {
 
     @Override
     public User logIn(String name, long phoneNumber) {
-        return userService.checkPhoneNumber(name, phoneNumber);
+        return userService.logIn(name, phoneNumber);
     }
 }

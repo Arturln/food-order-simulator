@@ -10,6 +10,8 @@ public interface UserRepository {
 
     User checkPhoneNumber(String name, long phoneNumber);
 
+    User logIn(String name, long phoneNumber);
+
     void updateUser(User updatedUser);
 
     void deleteUser(int userID);

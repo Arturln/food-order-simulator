@@ -21,6 +21,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User logIn(String name, long phoneNumber) {
+        return userRepository.logIn(name, phoneNumber);
+    }
+
+    @Override
     public User readUser(int userID) {
         return userRepository.readUser(userID);
 
