@@ -20,8 +20,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User readUser(User user) {
-        return userRepository.readUser(user);
+    public User readUser(int userID) {
+        return userRepository.readUser(userID);
 
 
     }
@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void deleteUser(User user) {
-        userRepository.deleteUser(userRepository.readUser(user));
+    public void deleteUser(int userID) {
+        userRepository.deleteUser(userID);
     }
 }

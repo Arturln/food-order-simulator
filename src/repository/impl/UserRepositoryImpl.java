@@ -29,10 +29,10 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public User readUser(User user) {
+    public User readUser(int userID) {
         for (User u : userDataBase) {
-            if (u.getId() == user.getId()) {
-                return user;
+            if (u.getId() == userID) {
+                return u;
             }
         }
         return null;
@@ -58,7 +58,7 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public void deleteUser(User user) {
-        userDataBase.removeIf(u -> u.getId() == user.getId());
+    public void deleteUser(int userID) {
+        userDataBase.removeIf(u -> u.getId() == userID);
     }
 }

@@ -6,12 +6,12 @@ public interface UserService {
 
     User createUser(String name, long phoneNumber);
 
-    User readUser(User user);
+    User readUser(int userID);
 
     User logIn(String name, long phoneNumber);
 
     void updateUser(User updatedUser);
 
-    void deleteUser(User user);
+    void deleteUser(int userID);
 
 }
