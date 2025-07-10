@@ -1,23 +1,29 @@
 [
   {
-    "id": 23749,
+    "id": 40766,
     "user": {
-      "id": 32872,
+      "id": 86458,
       "name": "Artur",
-      "phoneNumber": 375333727657
-    },
-    "food": {
-      "id": 2,
-      "name": "fish Dorado",
-      "cost": 21.0,
-      "weight": 470.0
+      "phoneNumber": 375441111111
     },
     "orderFoods": [
+      {
+        "id": 1,
+        "name": "steak T-Bone",
+        "cost": 15.4,
+        "weight": 340.0
+      },
       {
         "id": 2,
         "name": "fish Dorado",
         "cost": 21.0,
         "weight": 470.0
+      },
+      {
+        "id": 3,
+        "name": "baked potato",
+        "cost": 7.1,
+        "weight": 210.0
       }
     ]
   }

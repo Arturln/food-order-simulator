@@ -1,7 +1,7 @@
 package repository.impl;
 
 import io.IO;
-import io.UserDataIO;
+import io.impl.UserDataIO;
 import repository.UserRepository;
 import model.User;
 
@@ -55,10 +55,12 @@ public class UserRepositoryImpl implements UserRepository {
                 userDataBase.set(i, updatedUser);
             }
         }
+        userDataIO.writeFile(userDataBase);
     }
 
     @Override
     public void deleteUser(int userID) {
         userDataBase.removeIf(u -> u.getId() == userID);
+        userDataIO.writeFile(userDataBase);
     }
 }

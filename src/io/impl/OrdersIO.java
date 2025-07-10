@@ -1,10 +1,10 @@
-package io;
+package io.impl;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import io.IO;
 import model.Order;
-import model.User;
 
 import java.io.IOException;
 import java.lang.reflect.Type;

@@ -10,7 +10,7 @@ public class Order {
 
     private int id;
     private User user;
-    private Food food;
+    private transient Food food;
     private List<Food> orderFoods;
 
     public Order(User user, Food food) {

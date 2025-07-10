@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "steak T-Bone",
+    "cost": 15.4,
+    "weight": 340.0
+  },
+  {
+    "id": 2,
+    "name": "fish Dorado",
+    "cost": 21.0,
+    "weight": 470.0
+  },
+  {
+    "id": 3,
+    "name": "baked potato",
+    "cost": 7.1,
+    "weight": 210.0
+  },
+  {
+    "id": 4,
+    "name": "baked asparagus",
+    "cost": 13.4,
+    "weight": 180.0
+  },
+  {
+    "id": 5,
+    "name": "soup with chicken",
+    "cost": 8.2,
+    "weight": 560.0
+  },
+  {
+    "id": 6,
+    "name": "soup with tomatoes",
+    "cost": 6.4,
+    "weight": 490.0
+  },
+  {
+    "id": 7,
+    "name": "coffee",
+    "cost": 2.3,
+    "weight": 170.0
+  },
+  {
+    "id": 8,
+    "name": "orange juice",
+    "cost": 3.4,
+    "weight": 190.0
+  }
+]

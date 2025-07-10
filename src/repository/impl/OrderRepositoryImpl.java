@@ -1,6 +1,7 @@
 package repository.impl;
 
-import io.OrdersIO;
+import io.IO;
+import io.impl.OrdersIO;
 import model.Food;
 import model.Order;
 import model.User;
@@ -12,7 +13,8 @@ import java.util.List;
 
 public class OrderRepositoryImpl implements OrderRepository {
 
-    private List<Order> orderDataBase = new ArrayList<>();
+    private IO<Order> orderDataIO = new OrdersIO();
+    private List<Order> orderDataBase = orderDataIO.readFile();
     private FoodRepository foodRepository = new FoodRepositoryImpl();
 
     public OrderRepositoryImpl() {
@@ -20,15 +22,20 @@ public class OrderRepositoryImpl implements OrderRepository {
 
     @Override
     public Order createOrder(User user, Food food) {
+        if (orderDataBase == null) {
+            orderDataBase = new ArrayList<>(); // Инициализация, если вдруг null
+        }
         Order newOrder = new Order(user, food);
         orderDataBase.add(newOrder);
         newOrder.addFoodToOrder(food);
+        orderDataIO.writeFile(orderDataBase);
         return newOrder;
     }
 
     @Override
     public void addFoodToOrder(Order order, int foodID) {
         order.addFoodToOrder(foodRepository.readFood(foodID));
+        orderDataIO.writeFile(orderDataBase);
     }
 
     @Override

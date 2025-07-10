@@ -10,7 +10,7 @@ public interface FoodRepository {
 
     Food readFood(int id);
 
-    void updateFood(Food updatedFood, String name, double cost, double weight);
+    void updateFood(Food updatedFood);
 
     void deleteFood(Food food);
 

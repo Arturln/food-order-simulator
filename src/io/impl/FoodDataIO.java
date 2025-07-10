@@ -1,41 +1,39 @@
-package io;
+package io.impl;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-import model.Order;
-import model.User;
+import io.IO;
+import model.Food;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
 import java.util.List;
 
-public class UserDataIO implements IO<User>{
+public class FoodDataIO implements IO<Food> {
 
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
-    Path filePath = Path.of("users.json");
+    Path filePath = Path.of("foods.json");
 
     @Override
-    public void writeFile(List<User> data) {
-
-        String usersJson = gson.toJson(data);
+    public void writeFile(List<Food> data) {
+        String foodsJson = gson.toJson(data);
 
         try {
-            Files.writeString(filePath, usersJson);
+            Files.writeString(filePath, foodsJson);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
     @Override
-    public List<User> readFile() {
+    public List<Food> readFile() {
         try {
-            String usersFromFileString = Files.readString(filePath);
-            Type userListType = new TypeToken<List<User>>() {}.getType();
-            return gson.fromJson(usersFromFileString, userListType);
+            String foodsFromFileString = Files.readString(filePath);
+            Type foodListType = new TypeToken<List<Food>>() {}.getType();
+            return gson.fromJson(foodsFromFileString, foodListType);
         } catch (IOException e) {
             throw  new RuntimeException(e.getMessage());
         }
