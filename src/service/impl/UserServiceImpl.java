@@ -16,12 +16,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User checkPhoneNumber(String name, long phoneNumber) throws NotExistUserException {
-        return userRepository.checkPhoneNumber(name, phoneNumber);
+    public User checkPhoneNumber(long phoneNumber) throws NotExistUserException {
+        return userRepository.checkPhoneNumber(phoneNumber);
     }
 
     @Override
-    public User logIn(String name, long phoneNumber) {
+    public User logIn(String name, long phoneNumber) throws NotExistUserException {
+        if (userRepository.logIn(name, phoneNumber) == null) {
+            throw new NotExistUserException("User doesn't exist");
+        }
         return userRepository.logIn(name, phoneNumber);
     }
 

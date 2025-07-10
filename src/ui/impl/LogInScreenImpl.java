@@ -16,7 +16,7 @@ public class LogInScreenImpl implements LogInScreen {
     private UserController userController = new UserControllerImpl();
     private Regex regex = new Regex();
 
-    public User logIn() throws InvalidNameException, InvalidNumberException {
+    public User logIn() throws InvalidNameException, InvalidNumberException, NotExistUserException {
         System.out.println("Input your name");
         String name = regex.nameValidation(scannerUI.scanUserName());
         System.out.println("Input your phoneNumber");

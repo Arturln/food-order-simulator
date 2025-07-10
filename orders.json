@@ -1,6 +1,6 @@
 [
   {
-    "id": 27887,
+    "id": 53896,
     "user": {
       "id": 60191,
       "name": "Artur",
@@ -16,27 +16,22 @@
     ]
   },
   {
-    "id": 51532,
+    "id": 18986,
     "user": {
-      "id": 60191,
-      "name": "Artur",
-      "phoneNumber": 375333727657
+      "id": 8086,
+      "name": "Ar",
+      "phoneNumber": 375449999999
     },
     "orderFoods": [
-      {
-        "id": 3,
-        "name": "baked potato",
-        "cost": 7.1,
-        "weight": 210.0
-      }
+      null
     ]
   },
   {
-    "id": 33254,
+    "id": 90334,
     "user": {
-      "id": 72128,
+      "id": 36848,
       "name": "Artur",
-      "phoneNumber": 375446565655
+      "phoneNumber": 375291111111
     },
     "orderFoods": [
       {
@@ -44,60 +39,6 @@
         "name": "baked asparagus",
         "cost": 13.4,
         "weight": 180.0
-      }
-    ]
-  },
-  {
-    "id": 91299,
-    "user": {
-      "id": 40487,
-      "name": "Artur",
-      "phoneNumber": 375441111111
-    },
-    "orderFoods": [
-      {
-        "id": 4,
-        "name": "baked asparagus",
-        "cost": 13.4,
-        "weight": 180.0
-      }
-    ]
-  },
-  {
-    "id": 26507,
-    "orderFoods": [
-      {
-        "id": 4,
-        "name": "baked asparagus",
-        "cost": 13.4,
-        "weight": 180.0
-      }
-    ]
-  },
-  {
-    "id": 87445,
-    "user": {
-      "id": 40487,
-      "name": "Artur",
-      "phoneNumber": 375441111111
-    },
-    "orderFoods": [
-      {
-        "id": 4,
-        "name": "baked asparagus",
-        "cost": 13.4,
-        "weight": 180.0
-      }
-    ]
-  },
-  {
-    "id": 48558,
-    "orderFoods": [
-      {
-        "id": 2,
-        "name": "fish Dorado",
-        "cost": 21.0,
-        "weight": 470.0
       }
     ]
   }

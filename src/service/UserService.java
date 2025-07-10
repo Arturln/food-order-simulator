@@ -1,5 +1,6 @@
 package service;
 
+import exceptions.NotExistUserException;
 import model.User;
 
 public interface UserService {
@@ -8,9 +9,9 @@ public interface UserService {
 
     User readUser(int userID);
 
-    User checkPhoneNumber(String name, long phoneNumber);
+    User checkPhoneNumber(long phoneNumber);
 
-    User logIn(String name, long phoneNumber);
+    User logIn(String name, long phoneNumber) throws NotExistUserException;
 
     void updateUser(User updatedUser);
 

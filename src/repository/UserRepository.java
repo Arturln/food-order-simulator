@@ -8,7 +8,7 @@ public interface UserRepository {
 
     User readUser(int userID);
 
-    User checkPhoneNumber(String name, long phoneNumber);
+    User checkPhoneNumber(long phoneNumber);
 
     User logIn(String name, long phoneNumber);
 

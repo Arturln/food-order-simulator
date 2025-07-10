@@ -10,5 +10,5 @@ public interface UserController {
 
     void updateUser(User updatedUser);
 
-    User logIn(String name, long phoneNumber);
+    User logIn(String name, long phoneNumber) throws NotExistUserException;
 }

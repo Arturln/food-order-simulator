@@ -65,6 +65,8 @@ public class MainMenuUIImpl implements MainMenuUI {
                             System.out.println(e.getMessage());
                         } catch (InvalidNumberException e) {
                             System.out.println(e.getMessage());
+                        } catch (NotExistUserException e) {
+                            System.out.println(e.getMessage());
                         }
                     }
                     break;
