@@ -41,5 +41,55 @@
         "weight": 180.0
       }
     ]
+  },
+  {
+    "id": 71665,
+    "user": {
+      "id": 76910,
+      "name": "Artur",
+      "phoneNumber": 375333727657
+    },
+    "orderFoods": [
+      {
+        "id": 4,
+        "name": "baked asparagus",
+        "cost": 13.4,
+        "weight": 180.0
+      },
+      {
+        "id": 5,
+        "name": "soup with chicken",
+        "cost": 8.2,
+        "weight": 560.0
+      },
+      {
+        "id": 6,
+        "name": "soup with tomatoes",
+        "cost": 6.4,
+        "weight": 490.0
+      }
+    ]
+  },
+  {
+    "id": 71746,
+    "user": {
+      "id": 76910,
+      "name": "Artur",
+      "phoneNumber": 375333727657
+    },
+    "orderFoods": [
+      {
+        "id": 5,
+        "name": "soup with chicken",
+        "cost": 8.2,
+        "weight": 560.0
+      },
+      {
+        "id": 6,
+        "name": "soup with tomatoes",
+        "cost": 6.4,
+        "weight": 490.0
+      }
+    ]
   }
 ]
