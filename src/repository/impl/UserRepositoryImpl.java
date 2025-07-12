@@ -15,21 +15,20 @@ public class UserRepositoryImpl implements UserRepository {
     private List<User> userDataBase = userDataIO.readFile();
 
     public UserRepositoryImpl() {
-    }
-
-    @Override
-    public User createUser(String name, long phoneNumber) {
         if (userDataBase == null) {
             userDataBase = new ArrayList<>();
         }
-        User newUser = new User(name, phoneNumber);
-        userDataBase.add(newUser);
-        userDataIO.writeFile(userDataBase);
-        return newUser;
     }
 
     @Override
-    public User readUser(int userID) {
+    public User create(User user) {
+        userDataBase.add(user);
+        userDataIO.writeFile(userDataBase);
+        return user;
+    }
+
+    @Override
+    public User read(int userID) {
         for (User u : userDataBase) {
             if (u.getId() == userID) {
                 return u;
@@ -39,7 +38,7 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public User checkPhoneNumber(long phoneNumber) {
+    public User getByPhoneNumber(long phoneNumber) {
         return userDataBase.stream()
                 .filter(Objects::nonNull)
                 .filter(user -> Objects.equals(user.getPhoneNumber(), phoneNumber))
@@ -48,7 +47,7 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public User logIn(String name, long phoneNumber) {
+    public User getByNameAndPhone(String name, long phoneNumber) {
         return userDataBase.stream()
                 .filter(Objects::nonNull)
                 .filter(user -> user.getName().equals(name))
@@ -60,7 +59,7 @@ public class UserRepositoryImpl implements UserRepository {
 
 
     @Override
-    public void updateUser(User updatedUser) {
+    public void update(User updatedUser) {
         for (int i = 0; i < userDataBase.size(); i++) {
             User currentUser = userDataBase.get(i);
             if (currentUser.getId() == updatedUser.getId()) {
@@ -71,13 +70,9 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public void deleteUser(int userID) {
+    public void delete(int userID) {
         userDataBase.removeIf(u -> u.getId() == userID);
         userDataIO.writeFile(userDataBase);
     }
 
-    @Override
-    public boolean isEmpty() {
-        return userDataBase == null;
-    }
 }

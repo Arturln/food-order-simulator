@@ -18,13 +18,13 @@ public class OrderRepositoryImpl implements OrderRepository {
     private FoodRepository foodRepository = new FoodRepositoryImpl();
 
     public OrderRepositoryImpl() {
+        if (orderDataBase == null) {
+            orderDataBase = new ArrayList<>();
+        }
     }
 
     @Override
     public Order createOrder(User user, Food food) {
-        if (orderDataBase == null) {
-            orderDataBase = new ArrayList<>();
-        }
         Order newOrder = new Order(user, food);
         orderDataBase.add(newOrder);
         newOrder.addFoodToOrder(food);
@@ -33,18 +33,25 @@ public class OrderRepositoryImpl implements OrderRepository {
     }
 
     @Override
-    public void addFoodToOrder(Order order, int foodID) {
-        order.addFoodToOrder(foodRepository.readFood(foodID));
+    public Order create(Order order) {
+        orderDataBase.add(order);
+        orderDataIO.writeFile(orderDataBase);
+        return order;
+    }
+
+    @Override
+    public void addFood(Order order, int foodID) {
+        order.addFoodToOrder(foodRepository.read(foodID));
         orderDataIO.writeFile(orderDataBase);
     }
 
     @Override
-    public List<Food> getFoodsInOrder(Order order) {
+    public List<Food> getFoods(Order order) {
         return order.getFoodsInOrder();
     }
 
     @Override
-    public Order readOrder(Order order) {
+    public Order read(Order order) {
         for (Order o: orderDataBase) {
             if (o.getId() == order.getId()) {
                 return o;
@@ -54,7 +61,7 @@ public class OrderRepositoryImpl implements OrderRepository {
     }
 
     @Override
-    public void deleteOrder(Order order) {
+    public void delete(Order order) {
         orderDataBase.removeIf(o -> o.getId() == order.getId());
     }
 

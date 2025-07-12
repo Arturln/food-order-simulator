@@ -10,12 +10,14 @@ public interface OrderRepository {
 
     Order createOrder(User user, Food food);
 
-    void addFoodToOrder(Order order, int foodID);
+    Order create(Order order);
 
-    List<Food> getFoodsInOrder(Order order);
+    void addFood(Order order, int foodID);
 
-    Order readOrder(Order order);
+    List<Food> getFoods(Order order);
 
-    void deleteOrder(Order order);
+    Order read(Order order);
+
+    void delete(Order order);
 
 }

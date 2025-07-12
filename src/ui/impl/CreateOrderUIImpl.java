@@ -1,8 +1,8 @@
 package ui.impl;
 
-import controller.MenuController;
+import controller.FoodController;
 import controller.OrderController;
-import controller.impl.MenuControllerImpl;
+import controller.impl.FoodControllerImpl;
 import controller.impl.OrderControllerImpl;
 import model.Food;
 import model.Order;
@@ -13,7 +13,7 @@ import utils.ScannerUI;
 
 public class CreateOrderUIImpl implements CreateOrderUI {
 
-    private MenuController menuController = new MenuControllerImpl();
+    private FoodController foodController = new FoodControllerImpl();
     private OrderController orderController = new OrderControllerImpl();
     private ScannerUI scannerUI = new ScannerUI();
 
@@ -23,7 +23,7 @@ public class CreateOrderUIImpl implements CreateOrderUI {
         System.out.println("Choose dish, input number to add to order");
         System.out.println("0 - to finish order or out from choosing food");
 
-        for (Food food : menuController.getMenu()) {
+        for (Food food : foodController.getMenu()) {
             System.out.println(food.toString());
         }
 

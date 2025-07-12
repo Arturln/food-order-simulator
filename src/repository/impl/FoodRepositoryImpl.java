@@ -24,18 +24,17 @@ public class FoodRepositoryImpl implements FoodRepository {
 
 
     public FoodRepositoryImpl() {
-
     }
 
     @Override
-    public void createFood(String name, double cost, double weight) {
-        Food newFood = new Food(foodDataBase.size() + 1, name, cost, weight);
-        foodDataBase.add(newFood);
+    public Food create(Food food) {
+        foodDataBase.add(food);
         foodDataIO.writeFile(foodDataBase);
+        return food;
     }
 
     @Override
-    public Food readFood(int id) {
+    public Food read(int id) {
         for (Food food : foodDataBase) {
             if (food.getId() == id) {
                 return food;
@@ -45,7 +44,7 @@ public class FoodRepositoryImpl implements FoodRepository {
     }
 
     @Override
-    public void updateFood(Food updetedFood) {
+    public void update(Food updetedFood) {
         for (int i = 0; i < foodDataBase.size(); i++) {
             Food currentFood = foodDataBase.get(i);
             if (currentFood.getId() == updetedFood.getId()) {
@@ -57,7 +56,7 @@ public class FoodRepositoryImpl implements FoodRepository {
 
 
     @Override
-    public void deleteFood(Food food) {
+    public void delete(Food food) {
         foodDataBase.removeIf(f -> f.getId() == food.getId());
         foodDataIO.writeFile(foodDataBase);
     }

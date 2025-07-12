@@ -2,19 +2,20 @@ package repository;
 
 import model.User;
 
+import java.util.List;
+
 public interface UserRepository {
 
-    User createUser(String name, long phoneNumber);
+    User create(User user);
 
-    User readUser(int userID);
+    User read(int userID);
 
-    User checkPhoneNumber(long phoneNumber);
+    User getByPhoneNumber(long phoneNumber);
 
-    User logIn(String name, long phoneNumber);
+    User getByNameAndPhone(String name, long phoneNumber);
 
-    void updateUser(User updatedUser);
+    void update(User updatedUser);
 
-    void deleteUser(int userID);
+    void delete(int userID);
 
-    boolean isEmpty();
 }

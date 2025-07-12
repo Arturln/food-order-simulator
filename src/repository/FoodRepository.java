@@ -6,13 +6,13 @@ import java.util.List;
 
 public interface FoodRepository {
 
-    void createFood(String name, double cost, double weight);
+    Food create(Food food);
 
-    Food readFood(int id);
+    Food read(int id);
 
-    void updateFood(Food updatedFood);
+    void update(Food updatedFood);
 
-    void deleteFood(Food food);
+    void delete(Food food);
 
     List<Food> getMenu();
 }

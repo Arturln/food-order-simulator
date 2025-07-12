@@ -1,15 +1,15 @@
 package service;
 
+import exceptions.ExistUserException;
 import exceptions.NotExistUserException;
 import model.User;
 
 public interface UserService {
 
-    User createUser(String name, long phoneNumber);
+    User createUser(String name, long phoneNumber) throws ExistUserException;
 
     User readUser(int userID);
 
-    User checkPhoneNumber(long phoneNumber);
 
     User logIn(String name, long phoneNumber) throws NotExistUserException;
 
@@ -17,6 +17,5 @@ public interface UserService {
 
     void deleteUser(int userID);
 
-    public boolean isUserDataEmpty();
 
 }

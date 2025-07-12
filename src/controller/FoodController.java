@@ -1,11 +1,10 @@
-package service;
+package controller;
 
 import model.Food;
 
 import java.util.List;
 
-public interface MenuService {
+public interface FoodController {
 
     List<Food> getMenu();
-
 }

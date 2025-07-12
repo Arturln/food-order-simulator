@@ -13,11 +13,6 @@ public class UserControllerImpl implements UserController {
 
     @Override
     public User createUser(String name, long phoneNumber) throws ExistUserException {
-        if (!userService.isUserDataEmpty()) {
-            if (userService.checkPhoneNumber(phoneNumber) != null) {
-                throw new ExistUserException("Can't create user with this phone number, because the phone number already exist");
-            }
-        }
         return userService.createUser(name, phoneNumber);
     }
 
