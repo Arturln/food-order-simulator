@@ -38,7 +38,11 @@ public class LogInScreenImpl implements LogInScreen {
                     User user = userController.logIn(name, phoneNumber);
                     if (user != null) {
                         System.out.println("LogIn is successful");
-                        userMenuScreen.start(user);
+                        boolean exitMeinMenu = userMenuScreen.start(user);
+
+                        if (exitMeinMenu) {
+                            return;
+                        }
                     }
                     break;
             }

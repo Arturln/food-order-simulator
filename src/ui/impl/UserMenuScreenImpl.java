@@ -11,10 +11,9 @@ public class UserMenuScreenImpl implements UserMenuScreen {
     private ScannerUI scannerUI = new ScannerUI();
     private UpdateScreen updateScreen = new UpdateScreenImpl();
     private CreateOrderUI createOrderUI = new CreateOrderScreenImpl();
-//    private MainMenuUI mainMenuUI = new MainMenuImplREMASTER();
 
     @Override
-    public void start(User user) {
+    public boolean start(User user) {
 
         while (true) {
             System.out.println("Input:\n" +
@@ -36,9 +35,7 @@ public class UserMenuScreenImpl implements UserMenuScreen {
                     createOrderUI.createOrder(user);
                     break;
                 case Constants.GO_TO_MAIN_MENU:
-//                    mainMenuUI.start();
-//                    break;
-                    return;
+                    return true;
             }
         }
     }

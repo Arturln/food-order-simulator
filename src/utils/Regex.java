@@ -19,7 +19,7 @@ public class Regex {
     }
 
     public Long phoneNumberValidation(long phoneNumber) throws InvalidNumberException {
-        Pattern pattern = Pattern.compile("^375(33|44|29)[0-9]{7}$");
+        Pattern pattern = Pattern.compile("^375(33|44|29|25)[0-9]{7}$");
         Matcher matcher = pattern.matcher(String.valueOf(phoneNumber));
         if (matcher.find()) {
             return Long.parseLong(matcher.group());

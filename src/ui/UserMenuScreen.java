@@ -4,5 +4,5 @@ import model.User;
 
 public interface UserMenuScreen {
 
-    void start(User user);
+    boolean start(User user);
 }

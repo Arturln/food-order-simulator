@@ -37,7 +37,11 @@ public class RegisterScreenImpl implements RegisterScreen {
                     User user = userController.createUser(name, phoneNumber);
                     if (user != null) {
                         System.out.println("Register is successful");
-                        userMenuScreen.start(user);
+                        boolean exitMainMenu = userMenuScreen.start(user);
+
+                        if (exitMainMenu) {
+                            return;
+                        }
                     }
                     break;
             }
