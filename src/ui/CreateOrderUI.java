@@ -5,5 +5,5 @@ import model.User;
 
 public interface CreateOrderUI {
 
-    Order createOrder(User user);
+    void createOrder(User user);
 }

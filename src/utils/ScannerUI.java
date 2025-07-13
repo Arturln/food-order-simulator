@@ -17,4 +17,5 @@ public class ScannerUI {
     public long scanUserPhoneNumber() {
         return Long.parseLong(scanner.nextLine());
     }
+
 }

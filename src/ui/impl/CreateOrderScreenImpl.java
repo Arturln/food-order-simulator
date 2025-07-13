@@ -7,18 +7,18 @@ import controller.impl.OrderControllerImpl;
 import model.Food;
 import model.Order;
 import model.User;
-import ui.CreateOrderUI;
 import ui.Constants;
+import ui.CreateOrderUI;
 import utils.ScannerUI;
 
-public class CreateOrderUIImpl implements CreateOrderUI {
+public class CreateOrderScreenImpl implements CreateOrderUI {
 
     private FoodController foodController = new FoodControllerImpl();
     private OrderController orderController = new OrderControllerImpl();
     private ScannerUI scannerUI = new ScannerUI();
 
     @Override
-    public Order createOrder(User user) {
+    public void createOrder(User user) {
 
         System.out.println("Choose dish, input number to add to order");
         System.out.println("0 - to finish order or out from choosing food");
@@ -31,7 +31,7 @@ public class CreateOrderUIImpl implements CreateOrderUI {
 
         if (userChoice == Constants.OUT_FROM_CHOOSING_FOOD) {
             System.out.println("You can't create an order!");
-            return null;
+            return;
         }
 
         Order order = orderController.createOrder(user, userChoice);
@@ -48,6 +48,5 @@ public class CreateOrderUIImpl implements CreateOrderUI {
 
             orderController.addFoodToOrder(order, userChoice);
         }
-        return order;
     }
 }

@@ -1,0 +1,30 @@
+[
+  {
+    "id": 31255,
+    "user": {
+      "id": 88044,
+      "name": "Igoror",
+      "phoneNumber": 375445555555
+    },
+    "orderFoods": [
+      {
+        "id": 2,
+        "name": "fish Dorado",
+        "cost": 21.0,
+        "weight": 470.0
+      },
+      {
+        "id": 3,
+        "name": "baked potato",
+        "cost": 7.1,
+        "weight": 210.0
+      },
+      {
+        "id": 4,
+        "name": "baked asparagus",
+        "cost": 13.4,
+        "weight": 180.0
+      }
+    ]
+  }
+]

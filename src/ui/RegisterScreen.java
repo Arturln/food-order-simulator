@@ -5,5 +5,5 @@ import model.User;
 
 public interface RegisterScreen {
 
-    User registerUser() throws InvalidNameException, InvalidNumberException, ExistUserException;
+    void registerUser() throws InvalidNameException, InvalidNumberException, ExistUserException;
 }

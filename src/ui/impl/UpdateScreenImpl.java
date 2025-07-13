@@ -1,6 +1,7 @@
 package ui.impl;
 
-import exceptions.*;
+import exceptions.InvalidNameException;
+import exceptions.InvalidNumberException;
 import model.User;
 import ui.Constants;
 import ui.UpdateScreen;

@@ -1,12 +1,14 @@
 
-import app.Application;
+import ui.MainMenuUI;
+import ui.impl.MainMenuImpl;
+
 
 public class Main {
     public static void main(String[] args) {
 
-        Application application = new Application();
+        MainMenuUI mainMenuUI = new MainMenuImpl();
 
-        application.start();
+        mainMenuUI.start();
 
     }
 }

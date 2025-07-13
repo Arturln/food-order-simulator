@@ -7,5 +7,5 @@ import model.User;
 
 public interface LogInScreen {
 
-    User logIn() throws InvalidNameException, InvalidNumberException, NotExistUserException;
+    void logIn() throws InvalidNameException, InvalidNumberException, NotExistUserException;
 }
