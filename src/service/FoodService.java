@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface FoodService {
 
-    List<Food> getMenu();
+    List<Food> getFoodList();
 
     Food createFood(String name, double cost, double weight);
 

@@ -6,7 +6,7 @@ public class ScannerUI {
 
     private Scanner scanner = new Scanner(System.in);
 
-    public int userChoice() {
+    public int userChoice(){
         return Integer.parseInt(scanner.nextLine());
     }
 

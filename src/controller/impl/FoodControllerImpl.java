@@ -13,6 +13,6 @@ public class FoodControllerImpl implements FoodController {
 
     @Override
     public List<Food> getMenu() {
-        return foodService.getMenu();
+        return foodService.getFoodList();
     }
 }

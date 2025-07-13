@@ -4,6 +4,7 @@ import controller.FoodController;
 import controller.OrderController;
 import controller.impl.FoodControllerImpl;
 import controller.impl.OrderControllerImpl;
+import exceptions.ExistFoodException;
 import model.Food;
 import model.Order;
 import model.User;
@@ -20,33 +21,38 @@ public class CreateOrderScreenImpl implements CreateOrderUI {
     @Override
     public void createOrder(User user) {
 
-        System.out.println("Choose dish, input number to add to order");
-        System.out.println("0 - to finish order or out from choosing food");
+        try {
+            System.out.println("Choose dish, input number to add to order");
+            System.out.println("0 - to finish order or out from choosing food");
 
-        for (Food food : foodController.getMenu()) {
-            System.out.println(food.toString());
-        }
-
-        int userChoice = scannerUI.userChoice();
-
-        if (userChoice == Constants.OUT_FROM_CHOOSING_FOOD) {
-            System.out.println("You can't create an order!");
-            return;
-        }
-
-        Order order = orderController.createOrder(user, userChoice);
-
-        while (true) {
-
-            userChoice = scannerUI.userChoice();
-
-            if (userChoice == Constants.OUT_FROM_CHOOSING_FOOD) {
-                System.out.println("Your order data: ");
-                orderController.getOrderData(order);
-                break;
+            for (Food food : foodController.getMenu()) {
+                System.out.println(food.toString());
             }
 
-            orderController.addFoodToOrder(order, userChoice);
+            int userChoice = scannerUI.userChoice();
+
+            if (userChoice == Constants.OUT_FROM_CHOOSING_FOOD) {
+                System.out.println("You can't create an order!");
+                return;
+            }
+
+            Order order = orderController.createOrder(user, userChoice);
+
+            while (true) {
+
+                userChoice = scannerUI.userChoice();
+
+                if (userChoice == Constants.OUT_FROM_CHOOSING_FOOD) {
+                    System.out.println("Your order data: ");
+                    orderController.getOrderData(order);
+                    break;
+                }
+
+                orderController.addFoodToOrder(order, userChoice);
+
+            }
+        } catch (ExistFoodException e) {
+            System.out.println(e.getMessage());
         }
     }
 }

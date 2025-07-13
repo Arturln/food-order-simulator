@@ -1,5 +1,6 @@
 package service.impl;
 
+import exceptions.ExistFoodException;
 import model.Food;
 import model.Order;
 import model.User;
@@ -17,14 +18,20 @@ public class OrderServiceImpl implements OrderService {
     private FoodRepository foodRepository = new FoodRepositoryImpl();
 
     @Override
-    public Order createOrder(User user, int foodId) {
-        Order order = new Order(user, foodRepository.read(foodId));
-        order.addFoodToOrder(foodRepository.read(foodId));
+    public Order createOrder(User user, int foodID) throws ExistFoodException {
+        if (foodID > foodRepository.getFoodList().size() || foodID < 1) {
+            throw new ExistFoodException("Food not exist");
+        }
+        Order order = new Order(user, foodRepository.read(foodID));
+        order.addFoodToOrder(foodRepository.read(foodID));
         return orderRepository.create(order);
     }
 
     @Override
-    public void addFoodToOrder(Order order, int foodID) {
+    public void addFoodToOrder(Order order, int foodID) throws ExistFoodException {
+        if (foodID > foodRepository.getFoodList().size() || foodID < 1) {
+            throw new ExistFoodException("Food not exist");
+        }
         orderRepository.addFood(order, foodID);
     }
 

@@ -14,5 +14,5 @@ public interface FoodRepository {
 
     void delete(Food food);
 
-    List<Food> getMenu();
+    List<Food> getFoodList();
 }

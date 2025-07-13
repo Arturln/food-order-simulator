@@ -62,7 +62,7 @@ public class FoodRepositoryImpl implements FoodRepository {
     }
 
     @Override
-    public List<Food> getMenu() {
+    public List<Food> getFoodList() {
         return foodDataBase;
     }
 }

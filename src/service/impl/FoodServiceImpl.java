@@ -12,13 +12,13 @@ public class FoodServiceImpl implements FoodService {
     private FoodRepository foodRepository = new FoodRepositoryImpl();
 
     @Override
-    public List<Food> getMenu() {
-        return foodRepository.getMenu();
+    public List<Food> getFoodList() {
+        return foodRepository.getFoodList();
     }
 
     @Override
     public Food createFood(String name, double cost, double weight) {
-        Food food = new Food(foodRepository.getMenu().size() + 1, name, cost, weight);
+        Food food = new Food(foodRepository.getFoodList().size() + 1, name, cost, weight);
         return foodRepository.create(food);
     }
 
