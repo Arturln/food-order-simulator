@@ -11,6 +11,7 @@ import ui.RegisterScreen;
 import ui.UserMenuScreen;
 import utils.Regex;
 import utils.ScannerUI;
+import utils.WaitMessageDemonThread;
 
 public class RegisterScreenImpl implements RegisterScreen {
 

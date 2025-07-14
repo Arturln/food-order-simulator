@@ -7,6 +7,7 @@ import exceptions.NotExistUserException;
 import model.User;
 import ui.*;
 import utils.ScannerUI;
+import utils.WaitMessageDemonThread;
 
 public class MainMenuImpl implements MainMenuUI {
 
@@ -14,11 +15,11 @@ public class MainMenuImpl implements MainMenuUI {
     private RegisterScreen registerScreen = new RegisterScreenImpl();
     private LogInScreen logInScreen = new LogInScreenImpl();
     private int userChoice;
-    private User user;
+    private WaitMessageDemonThread waitMessageDemonThread = new WaitMessageDemonThread();
 
     @Override
     public void start() {
-
+        waitMessageDemonThread.start();
         System.out.println("Welcome to Mystery Shack\n");
         while (true) {
             System.out.println("Input:\n" +
@@ -30,6 +31,9 @@ public class MainMenuImpl implements MainMenuUI {
                 case Constants.REGISTER:
                     while (true) {
                         try {
+                            WaitMessageDemonThread.getMessage();
+                            Thread.sleep(2000);
+                            WaitMessageDemonThread.endMessage();
                             registerScreen.registerUser();
                             break;
                         } catch (InvalidNameException e) {
@@ -38,13 +42,17 @@ public class MainMenuImpl implements MainMenuUI {
                             System.out.println(e.getMessage());
                         } catch (ExistUserException e) {
                             System.out.println(e.getMessage());
+                        } catch (InterruptedException e) {
+                            throw new RuntimeException(e);
                         }
                     }
                     break;
-
                 case Constants.LOGIN:
                     while (true) {
                         try {
+                            WaitMessageDemonThread.getMessage();
+                            Thread.sleep(2000);
+                            WaitMessageDemonThread.endMessage();
                             logInScreen.logIn();
                             break;
                         } catch (InvalidNameException e) {
@@ -53,6 +61,8 @@ public class MainMenuImpl implements MainMenuUI {
                             System.out.println(e.getMessage());
                         } catch (NotExistUserException e) {
                             System.out.println(e.getMessage());
+                        } catch (InterruptedException e) {
+                            throw new RuntimeException(e);
                         }
                     }
                     break;
