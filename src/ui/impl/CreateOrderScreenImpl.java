@@ -13,6 +13,8 @@ import ui.CreateOrderUI;
 import utils.ScannerUI;
 import utils.WaitMessageDemonThread;
 
+import static ui.Constants.OUT_FROM_CHOOSING_FOOD;
+
 public class CreateOrderScreenImpl implements CreateOrderUI {
 
     private FoodController foodController = new FoodControllerImpl();
@@ -32,7 +34,7 @@ public class CreateOrderScreenImpl implements CreateOrderUI {
 
             int userChoice = scannerUI.userChoice();
 
-            if (userChoice == Constants.OUT_FROM_CHOOSING_FOOD) {
+            if (userChoice == OUT_FROM_CHOOSING_FOOD) {
                 System.out.println("You can't create an order!");
                 return;
             }
@@ -43,7 +45,7 @@ public class CreateOrderScreenImpl implements CreateOrderUI {
 
                 userChoice = scannerUI.userChoice();
 
-                if (userChoice == Constants.OUT_FROM_CHOOSING_FOOD) {
+                if (userChoice == OUT_FROM_CHOOSING_FOOD) {
                     WaitMessageDemonThread.getMessage();
                     try {
                         Thread.sleep(1000);

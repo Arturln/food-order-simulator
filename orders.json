@@ -182,5 +182,27 @@
         "weight": 170.0
       }
     ]
+  },
+  {
+    "id": 26056,
+    "user": {
+      "id": 63287,
+      "name": "Artur",
+      "phoneNumber": 375333727657
+    },
+    "orderFoods": [
+      {
+        "id": 6,
+        "name": "soup with tomatoes",
+        "cost": 6.4,
+        "weight": 490.0
+      },
+      {
+        "id": 7,
+        "name": "coffee",
+        "cost": 2.3,
+        "weight": 170.0
+      }
+    ]
   }
 ]

@@ -8,6 +8,8 @@ import ui.*;
 import utils.ScannerUI;
 import utils.WaitMessageDemonThread;
 
+import static ui.Constants.*;
+
 public class MainMenuImpl implements MainMenuUI {
 
     private ScannerUI scannerUI = new ScannerUI();
@@ -27,7 +29,7 @@ public class MainMenuImpl implements MainMenuUI {
                     "0 - to out from our Mystery Shack");
             userChoice = scannerUI.userChoice();
             switch (userChoice) {
-                case Constants.REGISTER:
+                case REGISTER:
                     while (true) {
                         try {
                             WaitMessageDemonThread.getMessage();
@@ -46,7 +48,7 @@ public class MainMenuImpl implements MainMenuUI {
                         }
                     }
                     break;
-                case Constants.LOGIN:
+                case LOGIN:
                     while (true) {
                         try {
                             WaitMessageDemonThread.getMessage();
@@ -65,7 +67,7 @@ public class MainMenuImpl implements MainMenuUI {
                         }
                     }
                     break;
-                case Constants.LOG_OUT:
+                case LOG_OUT:
                     WaitMessageDemonThread.getMessage();
                     try {
                         Thread.sleep(2000);

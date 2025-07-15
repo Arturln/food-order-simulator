@@ -7,6 +7,8 @@ import ui.*;
 import utils.ScannerUI;
 import utils.WaitMessageDemonThread;
 
+import static ui.Constants.*;
+
 public class UserMenuScreenImpl implements UserMenuScreen {
 
     private ScannerUI scannerUI = new ScannerUI();
@@ -23,7 +25,7 @@ public class UserMenuScreenImpl implements UserMenuScreen {
                     "0 - go to main menu");
             int userChoice = scannerUI.userChoice();
             switch (userChoice) {
-                case Constants.UPDATE_USER_PROFILE:
+                case UPDATE_USER_PROFILE:
                     try {
                         WaitMessageDemonThread.getMessage();
                         try {
@@ -39,7 +41,7 @@ public class UserMenuScreenImpl implements UserMenuScreen {
                         System.out.println(e.getMessage());
                     }
                     break;
-                case Constants.CREATE_ORDER:
+                case CREATE_ORDER:
                     WaitMessageDemonThread.getMessage();
                     try {
                         Thread.sleep(1000);
@@ -49,7 +51,7 @@ public class UserMenuScreenImpl implements UserMenuScreen {
                     WaitMessageDemonThread.stopMessage();
                     createOrderUI.createOrder(user);
                     break;
-                case Constants.GO_TO_MAIN_MENU:
+                case GO_TO_MAIN_MENU:
                     WaitMessageDemonThread.getMessage();
                     try {
                         Thread.sleep(1000);

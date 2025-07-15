@@ -13,6 +13,9 @@ import utils.Regex;
 import utils.ScannerUI;
 import utils.WaitMessageDemonThread;
 
+import static ui.Constants.OUT_FROM_REGISTER_MENU;
+import static ui.Constants.REGISTER_SCREEN_MENU_REGISTER_USER;
+
 public class RegisterScreenImpl implements RegisterScreen {
 
     private ScannerUI scannerUI = new ScannerUI();
@@ -27,7 +30,7 @@ public class RegisterScreenImpl implements RegisterScreen {
         while (true) {
             int userChoice = scannerUI.userChoice();
             switch (userChoice) {
-                case Constants.OUT_FROM_REGISTER_MENU:
+                case OUT_FROM_REGISTER_MENU:
                     WaitMessageDemonThread.getMessage();
                     try {
                         Thread.sleep(1000);
@@ -36,7 +39,7 @@ public class RegisterScreenImpl implements RegisterScreen {
                     }
                     WaitMessageDemonThread.stopMessage();
                     return;
-                case Constants.REGISTER_SCREEN_MENU_REGISTER_USER:
+                case REGISTER_SCREEN_MENU_REGISTER_USER:
                     System.out.println("Input your name");
                     String name = regex.nameValidation(scannerUI.scanUserName());
                     System.out.println("Input your phoneNumber");

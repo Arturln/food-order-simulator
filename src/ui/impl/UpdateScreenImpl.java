@@ -10,6 +10,8 @@ import utils.Regex;
 import utils.ScannerUI;
 import utils.WaitMessageDemonThread;
 
+import static ui.Constants.*;
+
 public class UpdateScreenImpl implements UpdateScreen {
 
     private ScannerUI scannerUI = new ScannerUI();
@@ -26,19 +28,19 @@ public class UpdateScreenImpl implements UpdateScreen {
             int userChoice = scannerUI.userChoice();
 
             switch (userChoice) {
-                case Constants.CHANGE_NAME:
+                case CHANGE_NAME:
                     System.out.println("Input new name: ");
                     String newName = regex.nameValidation(scannerUI.scanUserName());
                     updateUserUI.updateUserName(user, newName);
                     System.out.println("Updated name: " + user.getName());
                     break;
-                case Constants.CHANGE_PHONE_NUMBER:
+                case CHANGE_PHONE_NUMBER:
                     System.out.println("Input new phone number: ");
                     long newPhone = regex.phoneNumberValidation(scannerUI.scanUserPhoneNumber());
                     updateUserUI.updateUserPhoneNumber(user, newPhone);
                     System.out.println("Updated phone number: " + user.getPhoneNumber());
                     break;
-                case Constants.OUT_FROM_CHANGING_PROFILE:
+                case OUT_FROM_CHANGING_PROFILE:
                     WaitMessageDemonThread.getMessage();
                     try {
                         Thread.sleep(1000);
