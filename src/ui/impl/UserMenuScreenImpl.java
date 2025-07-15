@@ -5,6 +5,7 @@ import exceptions.InvalidNumberException;
 import model.User;
 import ui.*;
 import utils.ScannerUI;
+import utils.WaitMessageDemonThread;
 
 public class UserMenuScreenImpl implements UserMenuScreen {
 
@@ -24,6 +25,13 @@ public class UserMenuScreenImpl implements UserMenuScreen {
             switch (userChoice) {
                 case Constants.UPDATE_USER_PROFILE:
                     try {
+                        WaitMessageDemonThread.getMessage();
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+                            throw new RuntimeException(e);
+                        }
+                        WaitMessageDemonThread.stopMessage();
                         updateScreen.updateUser(user);
                     } catch (InvalidNameException e) {
                         System.out.println(e.getMessage());
@@ -32,9 +40,23 @@ public class UserMenuScreenImpl implements UserMenuScreen {
                     }
                     break;
                 case Constants.CREATE_ORDER:
+                    WaitMessageDemonThread.getMessage();
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                    WaitMessageDemonThread.stopMessage();
                     createOrderUI.createOrder(user);
                     break;
                 case Constants.GO_TO_MAIN_MENU:
+                    WaitMessageDemonThread.getMessage();
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                    WaitMessageDemonThread.stopMessage();
                     return true;
             }
         }

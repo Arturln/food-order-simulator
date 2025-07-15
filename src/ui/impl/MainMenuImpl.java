@@ -4,7 +4,6 @@ import exceptions.ExistUserException;
 import exceptions.InvalidNameException;
 import exceptions.InvalidNumberException;
 import exceptions.NotExistUserException;
-import model.User;
 import ui.*;
 import utils.ScannerUI;
 import utils.WaitMessageDemonThread;
@@ -33,7 +32,7 @@ public class MainMenuImpl implements MainMenuUI {
                         try {
                             WaitMessageDemonThread.getMessage();
                             Thread.sleep(2000);
-                            WaitMessageDemonThread.endMessage();
+                            WaitMessageDemonThread.stopMessage();
                             registerScreen.registerUser();
                             break;
                         } catch (InvalidNameException e) {
@@ -52,7 +51,7 @@ public class MainMenuImpl implements MainMenuUI {
                         try {
                             WaitMessageDemonThread.getMessage();
                             Thread.sleep(2000);
-                            WaitMessageDemonThread.endMessage();
+                            WaitMessageDemonThread.stopMessage();
                             logInScreen.logIn();
                             break;
                         } catch (InvalidNameException e) {
@@ -67,6 +66,12 @@ public class MainMenuImpl implements MainMenuUI {
                     }
                     break;
                 case Constants.LOG_OUT:
+                    WaitMessageDemonThread.getMessage();
+                    try {
+                        Thread.sleep(2000);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
                     return;
             }
         }

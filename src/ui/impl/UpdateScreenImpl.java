@@ -8,6 +8,7 @@ import ui.UpdateScreen;
 import ui.UpdateUserUI;
 import utils.Regex;
 import utils.ScannerUI;
+import utils.WaitMessageDemonThread;
 
 public class UpdateScreenImpl implements UpdateScreen {
 
@@ -38,6 +39,13 @@ public class UpdateScreenImpl implements UpdateScreen {
                     System.out.println("Updated phone number: " + user.getPhoneNumber());
                     break;
                 case Constants.OUT_FROM_CHANGING_PROFILE:
+                    WaitMessageDemonThread.getMessage();
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                    WaitMessageDemonThread.stopMessage();
                     return;
             }
         }

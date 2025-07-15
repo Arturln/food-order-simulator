@@ -28,6 +28,13 @@ public class RegisterScreenImpl implements RegisterScreen {
             int userChoice = scannerUI.userChoice();
             switch (userChoice) {
                 case Constants.OUT_FROM_REGISTER_MENU:
+                    WaitMessageDemonThread.getMessage();
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                    WaitMessageDemonThread.stopMessage();
                     return;
                 case Constants.REGISTER_SCREEN_MENU_REGISTER_USER:
                     System.out.println("Input your name");
@@ -37,8 +44,16 @@ public class RegisterScreenImpl implements RegisterScreen {
 
                     User user = userController.createUser(name, phoneNumber);
                     if (user != null) {
+                        WaitMessageDemonThread.getMessage();
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+                            throw new RuntimeException(e);
+                        }
+                        WaitMessageDemonThread.stopMessage();
                         System.out.println("Register is successful");
                         boolean exitMainMenu = userMenuScreen.start(user);
+                        System.out.println(exitMainMenu);
 
                         if (exitMainMenu) {
                             return;

@@ -11,6 +11,7 @@ import model.User;
 import ui.Constants;
 import ui.CreateOrderUI;
 import utils.ScannerUI;
+import utils.WaitMessageDemonThread;
 
 public class CreateOrderScreenImpl implements CreateOrderUI {
 
@@ -43,6 +44,13 @@ public class CreateOrderScreenImpl implements CreateOrderUI {
                 userChoice = scannerUI.userChoice();
 
                 if (userChoice == Constants.OUT_FROM_CHOOSING_FOOD) {
+                    WaitMessageDemonThread.getMessage();
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                    WaitMessageDemonThread.stopMessage();
                     System.out.println("Your order data: ");
                     orderController.getOrderData(order);
                     break;

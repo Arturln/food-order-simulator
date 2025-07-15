@@ -12,7 +12,7 @@ public class WaitMessageDemonThread extends Thread {
         waitFlag = true;
     }
 
-    public static void endMessage() {
+    public static void stopMessage() {
         waitFlag = false;
     }
 

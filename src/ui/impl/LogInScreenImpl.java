@@ -11,6 +11,7 @@ import ui.LogInScreen;
 import ui.UserMenuScreen;
 import utils.Regex;
 import utils.ScannerUI;
+import utils.WaitMessageDemonThread;
 
 
 public class LogInScreenImpl implements LogInScreen {
@@ -28,6 +29,13 @@ public class LogInScreenImpl implements LogInScreen {
             int userChoice = scannerUI.userChoice();
             switch (userChoice) {
                 case Constants.OUT_FROM_LOGIN_MENU:
+                    WaitMessageDemonThread.getMessage();
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                    WaitMessageDemonThread.stopMessage();
                     return;
                 case Constants.LOGIN_SCREEN_MENU_LOGIN_USER:
                     System.out.println("Input your name");
@@ -37,6 +45,13 @@ public class LogInScreenImpl implements LogInScreen {
 
                     User user = userController.logIn(name, phoneNumber);
                     if (user != null) {
+                        WaitMessageDemonThread.getMessage();
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+                            throw new RuntimeException(e);
+                        }
+                        WaitMessageDemonThread.stopMessage();
                         System.out.println("LogIn is successful");
                         boolean exitMeinMenu = userMenuScreen.start(user);
 
