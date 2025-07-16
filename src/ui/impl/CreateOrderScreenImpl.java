@@ -4,11 +4,10 @@ import controller.FoodController;
 import controller.OrderController;
 import controller.impl.FoodControllerImpl;
 import controller.impl.OrderControllerImpl;
-import exceptions.ExistFoodException;
+import exceptions.FoodExistException;
 import model.Food;
 import model.Order;
 import model.User;
-import ui.Constants;
 import ui.CreateOrderUI;
 import utils.ScannerUI;
 import utils.WaitMessageDemonThread;
@@ -22,7 +21,7 @@ public class CreateOrderScreenImpl implements CreateOrderUI {
     private ScannerUI scannerUI = new ScannerUI();
 
     @Override
-    public void createOrder(User user) {
+    public void show(User user) {
 
         try {
             System.out.println("Choose dish, input number to add to order");
@@ -46,13 +45,13 @@ public class CreateOrderScreenImpl implements CreateOrderUI {
                 userChoice = scannerUI.userChoice();
 
                 if (userChoice == OUT_FROM_CHOOSING_FOOD) {
-                    WaitMessageDemonThread.getMessage();
+                    WaitMessageDemonThread.startPrintingWaitMessage();
                     try {
                         Thread.sleep(1000);
                     } catch (InterruptedException e) {
                         throw new RuntimeException(e);
                     }
-                    WaitMessageDemonThread.stopMessage();
+                    WaitMessageDemonThread.stopPrintingWaitMessage();
                     System.out.println("Your order data: ");
                     orderController.getOrderData(order);
                     break;
@@ -61,7 +60,7 @@ public class CreateOrderScreenImpl implements CreateOrderUI {
                 orderController.addFoodToOrder(order, userChoice);
 
             }
-        } catch (ExistFoodException e) {
+        } catch (FoodExistException e) {
             System.out.println(e.getMessage());
         }
     }

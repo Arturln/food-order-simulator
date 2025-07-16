@@ -12,8 +12,6 @@ public interface UserRepository {
 
     User getByPhoneNumber(long phoneNumber);
 
-    User getByNameAndPhone(String name, long phoneNumber);
-
     void update(User updatedUser);
 
     void delete(int userID);

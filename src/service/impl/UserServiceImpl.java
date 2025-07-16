@@ -1,7 +1,7 @@
 package service.impl;
 
-import exceptions.ExistUserException;
-import exceptions.NotExistUserException;
+import exceptions.UserExistException;
+import exceptions.UserNotExistException;
 import model.User;
 import repository.UserRepository;
 import repository.impl.UserRepositoryImpl;
@@ -12,23 +12,23 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository = new UserRepositoryImpl();
 
     @Override
-    public User createUser(String name, long phoneNumber) throws ExistUserException {
+    public User createUser(String name, long phoneNumber) throws UserExistException {
         User user = userRepository.getByPhoneNumber(phoneNumber);
         if (user == null) {
             user = new User(name, phoneNumber);
         } else {
-            throw new ExistUserException("Can't create user with this phone number, because the phone number already exist");
+            throw new UserExistException("Can't create user with this phone number, because the phone number already exist");
         }
         return userRepository.create(user);
     }
 
 
     @Override
-    public User logIn(String name, long phoneNumber) throws NotExistUserException {
-        if (userRepository.getByNameAndPhone(name, phoneNumber) == null) {
-            throw new NotExistUserException("User doesn't exist");
+    public User logIn(String name, long phoneNumber) throws UserNotExistException {
+        if (userRepository.getByPhoneNumber(phoneNumber) == null) {
+            throw new UserNotExistException("User doesn't exist");
         }
-        return userRepository.getByNameAndPhone(name, phoneNumber);
+        return userRepository.getByPhoneNumber(phoneNumber);
     }
 
     @Override

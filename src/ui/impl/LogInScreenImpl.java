@@ -4,9 +4,8 @@ import controller.UserController;
 import controller.impl.UserControllerImpl;
 import exceptions.InvalidNameException;
 import exceptions.InvalidNumberException;
-import exceptions.NotExistUserException;
+import exceptions.UserNotExistException;
 import model.User;
-import ui.Constants;
 import ui.LogInScreen;
 import ui.UserMenuScreen;
 import utils.Regex;
@@ -25,20 +24,20 @@ public class LogInScreenImpl implements LogInScreen {
     private Regex regex = new Regex();
 
     @Override
-    public void logIn() throws InvalidNameException, InvalidNumberException, NotExistUserException {
+    public void show() throws InvalidNameException, InvalidNumberException, UserNotExistException {
         System.out.println("0 - to out from login menu\n"
                 + "1 - to login user\n");
         while (true) {
             int userChoice = scannerUI.userChoice();
             switch (userChoice) {
                 case OUT_FROM_LOGIN_MENU:
-                    WaitMessageDemonThread.getMessage();
+                    WaitMessageDemonThread.startPrintingWaitMessage();
                     try {
                         Thread.sleep(1000);
                     } catch (InterruptedException e) {
                         throw new RuntimeException(e);
                     }
-                    WaitMessageDemonThread.stopMessage();
+                    WaitMessageDemonThread.stopPrintingWaitMessage();
                     return;
                 case LOGIN_SCREEN_MENU_LOGIN_USER:
                     System.out.println("Input your name");
@@ -48,15 +47,15 @@ public class LogInScreenImpl implements LogInScreen {
 
                     User user = userController.logIn(name, phoneNumber);
                     if (user != null) {
-                        WaitMessageDemonThread.getMessage();
+                        WaitMessageDemonThread.startPrintingWaitMessage();
                         try {
                             Thread.sleep(1000);
                         } catch (InterruptedException e) {
                             throw new RuntimeException(e);
                         }
-                        WaitMessageDemonThread.stopMessage();
+                        WaitMessageDemonThread.stopPrintingWaitMessage();
                         System.out.println("LogIn is successful");
-                        boolean exitMeinMenu = userMenuScreen.start(user);
+                        boolean exitMeinMenu = userMenuScreen.show(user);
 
                         if (exitMeinMenu) {
                             return;

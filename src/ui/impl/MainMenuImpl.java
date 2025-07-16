@@ -1,9 +1,9 @@
 package ui.impl;
 
-import exceptions.ExistUserException;
+import exceptions.UserExistException;
 import exceptions.InvalidNameException;
 import exceptions.InvalidNumberException;
-import exceptions.NotExistUserException;
+import exceptions.UserNotExistException;
 import ui.*;
 import utils.ScannerUI;
 import utils.WaitMessageDemonThread;
@@ -19,7 +19,7 @@ public class MainMenuImpl implements MainMenuUI {
     private WaitMessageDemonThread waitMessageDemonThread = new WaitMessageDemonThread();
 
     @Override
-    public void start() {
+    public void show() {
         waitMessageDemonThread.start();
         System.out.println("Welcome to Mystery Shack\n");
         while (true) {
@@ -32,16 +32,16 @@ public class MainMenuImpl implements MainMenuUI {
                 case REGISTER:
                     while (true) {
                         try {
-                            WaitMessageDemonThread.getMessage();
+                            WaitMessageDemonThread.startPrintingWaitMessage();
                             Thread.sleep(2000);
-                            WaitMessageDemonThread.stopMessage();
-                            registerScreen.registerUser();
+                            WaitMessageDemonThread.stopPrintingWaitMessage();
+                            registerScreen.show();
                             break;
                         } catch (InvalidNameException e) {
                             System.out.println(e.getMessage());
                         } catch (InvalidNumberException e) {
                             System.out.println(e.getMessage());
-                        } catch (ExistUserException e) {
+                        } catch (UserExistException e) {
                             System.out.println(e.getMessage());
                         } catch (InterruptedException e) {
                             throw new RuntimeException(e);
@@ -51,16 +51,16 @@ public class MainMenuImpl implements MainMenuUI {
                 case LOGIN:
                     while (true) {
                         try {
-                            WaitMessageDemonThread.getMessage();
+                            WaitMessageDemonThread.startPrintingWaitMessage();
                             Thread.sleep(2000);
-                            WaitMessageDemonThread.stopMessage();
-                            logInScreen.logIn();
+                            WaitMessageDemonThread.stopPrintingWaitMessage();
+                            logInScreen.show();
                             break;
                         } catch (InvalidNameException e) {
                             System.out.println(e.getMessage());
                         } catch (InvalidNumberException e) {
                             System.out.println(e.getMessage());
-                        } catch (NotExistUserException e) {
+                        } catch (UserNotExistException e) {
                             System.out.println(e.getMessage());
                         } catch (InterruptedException e) {
                             throw new RuntimeException(e);
@@ -68,7 +68,7 @@ public class MainMenuImpl implements MainMenuUI {
                     }
                     break;
                 case LOG_OUT:
-                    WaitMessageDemonThread.getMessage();
+                    WaitMessageDemonThread.startPrintingWaitMessage();
                     try {
                         Thread.sleep(2000);
                     } catch (InterruptedException e) {

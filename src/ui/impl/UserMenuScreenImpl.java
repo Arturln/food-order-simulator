@@ -16,7 +16,7 @@ public class UserMenuScreenImpl implements UserMenuScreen {
     private CreateOrderUI createOrderUI = new CreateOrderScreenImpl();
 
     @Override
-    public boolean start(User user) {
+    public boolean show(User user) {
 
         while (true) {
             System.out.println("Input:\n" +
@@ -27,14 +27,14 @@ public class UserMenuScreenImpl implements UserMenuScreen {
             switch (userChoice) {
                 case UPDATE_USER_PROFILE:
                     try {
-                        WaitMessageDemonThread.getMessage();
+                        WaitMessageDemonThread.startPrintingWaitMessage();
                         try {
                             Thread.sleep(1000);
                         } catch (InterruptedException e) {
                             throw new RuntimeException(e);
                         }
-                        WaitMessageDemonThread.stopMessage();
-                        updateScreen.updateUser(user);
+                        WaitMessageDemonThread.stopPrintingWaitMessage();
+                        updateScreen.show(user);
                     } catch (InvalidNameException e) {
                         System.out.println(e.getMessage());
                     } catch (InvalidNumberException e) {
@@ -42,23 +42,23 @@ public class UserMenuScreenImpl implements UserMenuScreen {
                     }
                     break;
                 case CREATE_ORDER:
-                    WaitMessageDemonThread.getMessage();
+                    WaitMessageDemonThread.startPrintingWaitMessage();
                     try {
                         Thread.sleep(1000);
                     } catch (InterruptedException e) {
                         throw new RuntimeException(e);
                     }
-                    WaitMessageDemonThread.stopMessage();
-                    createOrderUI.createOrder(user);
+                    WaitMessageDemonThread.stopPrintingWaitMessage();
+                    createOrderUI.show(user);
                     break;
                 case GO_TO_MAIN_MENU:
-                    WaitMessageDemonThread.getMessage();
+                    WaitMessageDemonThread.startPrintingWaitMessage();
                     try {
                         Thread.sleep(1000);
                     } catch (InterruptedException e) {
                         throw new RuntimeException(e);
                     }
-                    WaitMessageDemonThread.stopMessage();
+                    WaitMessageDemonThread.stopPrintingWaitMessage();
                     return true;
             }
         }

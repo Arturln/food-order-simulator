@@ -2,10 +2,9 @@ package ui;
 
 import exceptions.InvalidNameException;
 import exceptions.InvalidNumberException;
-import exceptions.NotExistUserException;
-import model.User;
+import exceptions.UserNotExistException;
 
 public interface LogInScreen {
 
-    void logIn() throws InvalidNameException, InvalidNumberException, NotExistUserException;
+    void show() throws InvalidNameException, InvalidNumberException, UserNotExistException;
 }

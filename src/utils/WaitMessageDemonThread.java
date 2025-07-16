@@ -10,11 +10,11 @@ public class WaitMessageDemonThread extends Thread {
         this.setDaemon(true);
     }
 
-    public static void getMessage() {
+    public static void startPrintingWaitMessage() {
         waitFlag = true;
     }
 
-    public static void stopMessage() {
+    public static void stopPrintingWaitMessage() {
         waitFlag = false;
     }
 

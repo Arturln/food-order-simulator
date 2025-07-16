@@ -1,8 +1,7 @@
 package controller.impl;
 
 import controller.OrderController;
-import exceptions.ExistFoodException;
-import exceptions.ExistUserException;
+import exceptions.FoodExistException;
 import model.Food;
 import model.Order;
 import model.User;
@@ -18,12 +17,12 @@ public class OrderControllerImpl implements OrderController {
     private DateTime dateTime = new DateTime();
 
     @Override
-    public Order createOrder(User user, int dishID) throws ExistFoodException {
+    public Order createOrder(User user, int dishID) throws FoodExistException {
         return orderService.createOrder(user, dishID);
     }
 
     @Override
-    public void addFoodToOrder(Order order, int foodID) throws ExistFoodException {
+    public void addFoodToOrder(Order order, int foodID) throws FoodExistException {
         orderService.addFoodToOrder(order, foodID);
     }
 

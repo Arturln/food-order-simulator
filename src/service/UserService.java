@@ -1,17 +1,17 @@
 package service;
 
-import exceptions.ExistUserException;
-import exceptions.NotExistUserException;
+import exceptions.UserExistException;
+import exceptions.UserNotExistException;
 import model.User;
 
 public interface UserService {
 
-    User createUser(String name, long phoneNumber) throws ExistUserException;
+    User createUser(String name, long phoneNumber) throws UserExistException;
 
     User readUser(int userID);
 
 
-    User logIn(String name, long phoneNumber) throws NotExistUserException;
+    User logIn(String name, long phoneNumber) throws UserNotExistException;
 
     void updateUser(User updatedUser);
 
