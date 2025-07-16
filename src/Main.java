@@ -8,7 +8,7 @@ public class Main {
 
         MainMenuUI mainMenuUI = new MainMenuImpl();
 
-        mainMenuUI.start();
+        mainMenuUI.show();
 
     }
 }

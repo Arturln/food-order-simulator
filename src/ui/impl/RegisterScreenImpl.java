@@ -6,7 +6,6 @@ import exceptions.ExistUserException;
 import exceptions.InvalidNameException;
 import exceptions.InvalidNumberException;
 import model.User;
-import ui.Constants;
 import ui.RegisterScreen;
 import ui.UserMenuScreen;
 import utils.Regex;
@@ -24,7 +23,7 @@ public class RegisterScreenImpl implements RegisterScreen {
     private Regex regex = new Regex();
 
     @Override
-    public void registerUser() throws InvalidNameException, InvalidNumberException, ExistUserException {
+    public void show() throws InvalidNameException, InvalidNumberException, ExistUserException {
         System.out.println("0 - to out from login menu\n"
                 + "1 - to register user\n");
         while (true) {
@@ -55,7 +54,7 @@ public class RegisterScreenImpl implements RegisterScreen {
                         }
                         WaitMessageDemonThread.stopMessage();
                         System.out.println("Register is successful");
-                        boolean exitMainMenu = userMenuScreen.start(user);
+                        boolean exitMainMenu = userMenuScreen.show(user);
                         System.out.println(exitMainMenu);
 
                         if (exitMainMenu) {

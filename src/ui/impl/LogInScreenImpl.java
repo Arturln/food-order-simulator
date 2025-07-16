@@ -6,7 +6,6 @@ import exceptions.InvalidNameException;
 import exceptions.InvalidNumberException;
 import exceptions.NotExistUserException;
 import model.User;
-import ui.Constants;
 import ui.LogInScreen;
 import ui.UserMenuScreen;
 import utils.Regex;
@@ -25,7 +24,7 @@ public class LogInScreenImpl implements LogInScreen {
     private Regex regex = new Regex();
 
     @Override
-    public void logIn() throws InvalidNameException, InvalidNumberException, NotExistUserException {
+    public void show() throws InvalidNameException, InvalidNumberException, NotExistUserException {
         System.out.println("0 - to out from login menu\n"
                 + "1 - to login user\n");
         while (true) {
@@ -56,7 +55,7 @@ public class LogInScreenImpl implements LogInScreen {
                         }
                         WaitMessageDemonThread.stopMessage();
                         System.out.println("LogIn is successful");
-                        boolean exitMeinMenu = userMenuScreen.start(user);
+                        boolean exitMeinMenu = userMenuScreen.show(user);
 
                         if (exitMeinMenu) {
                             return;

@@ -25,10 +25,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User logIn(String name, long phoneNumber) throws NotExistUserException {
-        if (userRepository.getByNameAndPhone(name, phoneNumber) == null) {
+        if (userRepository.getByPhoneNumber(phoneNumber) == null) {
             throw new NotExistUserException("User doesn't exist");
         }
-        return userRepository.getByNameAndPhone(name, phoneNumber);
+        return userRepository.getByPhoneNumber(phoneNumber);
     }
 
     @Override

@@ -1,207 +1,57 @@
 [
   {
-    "id": 31255,
+    "id": 68055,
     "user": {
-      "id": 88044,
-      "name": "Igoror",
+      "id": 42195,
+      "name": "Artur",
       "phoneNumber": 375445555555
     },
     "orderFoods": [
       {
-        "id": 2,
-        "name": "fish Dorado",
-        "cost": 21.0,
-        "weight": 470.0
-      },
-      {
-        "id": 3,
-        "name": "baked potato",
-        "cost": 7.1,
-        "weight": 210.0
-      },
-      {
         "id": 4,
         "name": "baked asparagus",
         "cost": 13.4,
         "weight": 180.0
-      }
-    ]
-  },
-  {
-    "id": 83021,
-    "user": {
-      "id": 76910,
-      "name": "Maria",
-      "phoneNumber": 375333883648
-    },
-    "orderFoods": [
-      {
-        "id": 7,
-        "name": "coffee",
-        "cost": 2.3,
-        "weight": 170.0
       },
       {
-        "id": 7,
-        "name": "coffee",
-        "cost": 2.3,
-        "weight": 170.0
+        "id": 5,
+        "name": "soup with chicken",
+        "cost": 8.2,
+        "weight": 560.0
       },
-      {
-        "id": 7,
-        "name": "coffee",
-        "cost": 2.3,
-        "weight": 170.0
-      }
-    ]
-  },
-  {
-    "id": 63405,
-    "user": {
-      "id": 64525,
-      "name": "Arturio",
-      "phoneNumber": 375333727657
-    },
-    "orderFoods": [
-      {
-        "id": 8,
-        "name": "orange juice",
-        "cost": 3.4,
-        "weight": 190.0
-      }
-    ]
-  },
-  {
-    "id": 38703,
-    "user": {
-      "id": 63287,
-      "name": "Artur",
-      "phoneNumber": 375333727657
-    },
-    "orderFoods": [
-      {
-        "id": 3,
-        "name": "baked potato",
-        "cost": 7.1,
-        "weight": 210.0
-      },
-      {
-        "id": 4,
-        "name": "baked asparagus",
-        "cost": 13.4,
-        "weight": 180.0
-      }
-    ]
-  },
-  {
-    "id": 40823,
-    "user": {
-      "id": 63287,
-      "name": "Artur",
-      "phoneNumber": 375333727657
-    },
-    "orderFoods": [
-      {
-        "id": 1,
-        "name": "steak T-Bone",
-        "cost": 15.4,
-        "weight": 340.0
-      },
-      {
-        "id": 2,
-        "name": "fish Dorado",
-        "cost": 21.0,
-        "weight": 470.0
-      },
-      {
-        "id": 3,
-        "name": "baked potato",
-        "cost": 7.1,
-        "weight": 210.0
-      },
-      {
-        "id": 7,
-        "name": "coffee",
-        "cost": 2.3,
-        "weight": 170.0
-      }
-    ]
-  },
-  {
-    "id": 80341,
-    "user": {
-      "id": 89980,
-      "name": "Maria",
-      "phoneNumber": 375333883648
-    },
-    "orderFoods": [
-      {
-        "id": 7,
-        "name": "coffee",
-        "cost": 2.3,
-        "weight": 170.0
-      },
-      {
-        "id": 7,
-        "name": "coffee",
-        "cost": 2.3,
-        "weight": 170.0
-      },
-      {
-        "id": 7,
-        "name": "coffee",
-        "cost": 2.3,
-        "weight": 170.0
-      }
-    ]
-  },
-  {
-    "id": 95116,
-    "user": {
-      "id": 63287,
-      "name": "Artur",
-      "phoneNumber": 375333727657
-    },
-    "orderFoods": [
-      {
-        "id": 7,
-        "name": "coffee",
-        "cost": 2.3,
-        "weight": 170.0
-      },
-      {
-        "id": 7,
-        "name": "coffee",
-        "cost": 2.3,
-        "weight": 170.0
-      },
-      {
-        "id": 7,
-        "name": "coffee",
-        "cost": 2.3,
-        "weight": 170.0
-      }
-    ]
-  },
-  {
-    "id": 26056,
-    "user": {
-      "id": 63287,
-      "name": "Artur",
-      "phoneNumber": 375333727657
-    },
-    "orderFoods": [
       {
         "id": 6,
         "name": "soup with tomatoes",
         "cost": 6.4,
         "weight": 490.0
+      }
+    ]
+  },
+  {
+    "id": 58858,
+    "user": {
+      "id": 63287,
+      "name": "Artur",
+      "phoneNumber": 375333727657
+    },
+    "orderFoods": [
+      {
+        "id": 4,
+        "name": "baked asparagus",
+        "cost": 13.4,
+        "weight": 180.0
       },
       {
-        "id": 7,
-        "name": "coffee",
-        "cost": 2.3,
-        "weight": 170.0
+        "id": 4,
+        "name": "baked asparagus",
+        "cost": 13.4,
+        "weight": 180.0
+      },
+      {
+        "id": 4,
+        "name": "baked asparagus",
+        "cost": 13.4,
+        "weight": 180.0
       }
     ]
   }

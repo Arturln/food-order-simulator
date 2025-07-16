@@ -19,7 +19,7 @@ public class MainMenuImpl implements MainMenuUI {
     private WaitMessageDemonThread waitMessageDemonThread = new WaitMessageDemonThread();
 
     @Override
-    public void start() {
+    public void show() {
         waitMessageDemonThread.start();
         System.out.println("Welcome to Mystery Shack\n");
         while (true) {
@@ -35,7 +35,7 @@ public class MainMenuImpl implements MainMenuUI {
                             WaitMessageDemonThread.getMessage();
                             Thread.sleep(2000);
                             WaitMessageDemonThread.stopMessage();
-                            registerScreen.registerUser();
+                            registerScreen.show();
                             break;
                         } catch (InvalidNameException e) {
                             System.out.println(e.getMessage());
@@ -54,7 +54,7 @@ public class MainMenuImpl implements MainMenuUI {
                             WaitMessageDemonThread.getMessage();
                             Thread.sleep(2000);
                             WaitMessageDemonThread.stopMessage();
-                            logInScreen.logIn();
+                            logInScreen.show();
                             break;
                         } catch (InvalidNameException e) {
                             System.out.println(e.getMessage());

@@ -22,7 +22,7 @@ public class CreateOrderScreenImpl implements CreateOrderUI {
     private ScannerUI scannerUI = new ScannerUI();
 
     @Override
-    public void createOrder(User user) {
+    public void show(User user) {
 
         try {
             System.out.println("Choose dish, input number to add to order");

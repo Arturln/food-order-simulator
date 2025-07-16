@@ -40,23 +40,10 @@ public class UserRepositoryImpl implements UserRepository {
     @Override
     public User getByPhoneNumber(long phoneNumber) {
         return userDataBase.stream()
-                .filter(Objects::nonNull)
                 .filter(user -> Objects.equals(user.getPhoneNumber(), phoneNumber))
                 .findAny()
                 .orElse(null);
     }
-
-    @Override
-    public User getByNameAndPhone(String name, long phoneNumber) {
-        return userDataBase.stream()
-                .filter(Objects::nonNull)
-                .filter(user -> user.getName().equals(name))
-                .filter(user -> Objects.equals(user.getPhoneNumber(), phoneNumber))
-                .findAny()
-                .orElse(null);
-    }
-
-
 
     @Override
     public void update(User updatedUser) {

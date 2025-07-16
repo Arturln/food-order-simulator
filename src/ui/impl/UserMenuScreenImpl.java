@@ -16,7 +16,7 @@ public class UserMenuScreenImpl implements UserMenuScreen {
     private CreateOrderUI createOrderUI = new CreateOrderScreenImpl();
 
     @Override
-    public boolean start(User user) {
+    public boolean show(User user) {
 
         while (true) {
             System.out.println("Input:\n" +
@@ -34,7 +34,7 @@ public class UserMenuScreenImpl implements UserMenuScreen {
                             throw new RuntimeException(e);
                         }
                         WaitMessageDemonThread.stopMessage();
-                        updateScreen.updateUser(user);
+                        updateScreen.show(user);
                     } catch (InvalidNameException e) {
                         System.out.println(e.getMessage());
                     } catch (InvalidNumberException e) {
@@ -49,7 +49,7 @@ public class UserMenuScreenImpl implements UserMenuScreen {
                         throw new RuntimeException(e);
                     }
                     WaitMessageDemonThread.stopMessage();
-                    createOrderUI.createOrder(user);
+                    createOrderUI.show(user);
                     break;
                 case GO_TO_MAIN_MENU:
                     WaitMessageDemonThread.getMessage();
