@@ -1,7 +1,7 @@
 package ui.impl;
 
-import controller.UserController;
-import controller.impl.UserControllerImpl;
+import controller.RegisterScreenController;
+import controller.impl.RegisterScreenControllerImpl;
 import exceptions.UserExistException;
 import exceptions.InvalidNameException;
 import exceptions.InvalidNumberException;
@@ -18,7 +18,7 @@ import static ui.Constants.REGISTER_SCREEN_MENU_REGISTER_USER;
 public class RegisterScreenImpl implements RegisterScreen {
 
     private ScannerUI scannerUI = new ScannerUI();
-    private UserController userController = new UserControllerImpl();
+    private RegisterScreenController registerScreenController = new RegisterScreenControllerImpl();
     private UserMenuScreen userMenuScreen = new UserMenuScreenImpl();
     private Regex regex = new Regex();
 
@@ -44,7 +44,7 @@ public class RegisterScreenImpl implements RegisterScreen {
                     System.out.println("Input your phoneNumber");
                     long phoneNumber = regex.phoneNumberValidation(scannerUI.scanUserPhoneNumber());
 
-                    User user = userController.createUser(name, phoneNumber);
+                    User user = registerScreenController.createUser(name, phoneNumber);
                     if (user != null) {
                         WaitMessageDemonThread.startPrintingWaitMessage();
                         try {

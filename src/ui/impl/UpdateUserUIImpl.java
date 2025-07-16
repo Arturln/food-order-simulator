@@ -1,23 +1,23 @@
 package ui.impl;
 
-import controller.UserController;
-import controller.impl.UserControllerImpl;
+import controller.UpdateUserController;
+import controller.impl.UpdateUserControllerImpl;
 import model.User;
 import ui.UpdateUserUI;
 
 public class UpdateUserUIImpl implements UpdateUserUI {
 
-    private UserController userController = new UserControllerImpl();
+    private UpdateUserController updateUserController = new UpdateUserControllerImpl();
 
     @Override
     public void updateUserPhoneNumber(User user, long phoneNumber) {
         user.setPhoneNumber(phoneNumber);
-        userController.updateUser(user);
+        updateUserController.updateUser(user);
     }
 
     @Override
     public void updateUserName(User user, String name) {
         user.setName(name);
-        userController.updateUser(user);
+        updateUserController.updateUser(user);
     }
 }

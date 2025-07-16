@@ -1,20 +1,28 @@
 package controller.impl;
 
-import controller.OrderController;
+import controller.OrderScreenController;
 import exceptions.FoodExistException;
 import model.Food;
 import model.Order;
 import model.User;
+import service.FoodService;
 import service.OrderService;
+import service.impl.FoodServiceImpl;
 import service.impl.OrderServiceImpl;
 import utils.DateTime;
 
 import java.util.List;
 
-public class OrderControllerImpl implements OrderController {
+public class OrderScreenControllerImpl implements OrderScreenController {
 
+    private FoodService foodService = new FoodServiceImpl();
     private OrderService orderService = new OrderServiceImpl();
     private DateTime dateTime = new DateTime();
+
+    @Override
+    public List<Food> getMenu() {
+        return foodService.getFoodList();
+    }
 
     @Override
     public Order createOrder(User user, int dishID) throws FoodExistException {
@@ -24,11 +32,6 @@ public class OrderControllerImpl implements OrderController {
     @Override
     public void addFoodToOrder(Order order, int foodID) throws FoodExistException {
         orderService.addFoodToOrder(order, foodID);
-    }
-
-    @Override
-    public List<Food> getFoodsInOrder(Order order) {
-        return orderService.getFoodsInOrder(order);
     }
 
     @Override
@@ -47,5 +50,4 @@ public class OrderControllerImpl implements OrderController {
         );
         System.out.printf("Total cost: %.1f $ \n", orderService.getTotalCostInOrder(order));
     }
-
 }

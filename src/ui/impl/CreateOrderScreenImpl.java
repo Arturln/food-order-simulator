@@ -1,9 +1,7 @@
 package ui.impl;
 
-import controller.FoodController;
-import controller.OrderController;
-import controller.impl.FoodControllerImpl;
-import controller.impl.OrderControllerImpl;
+import controller.OrderScreenController;
+import controller.impl.OrderScreenControllerImpl;
 import exceptions.FoodExistException;
 import model.Food;
 import model.Order;
@@ -16,8 +14,7 @@ import static ui.Constants.OUT_FROM_CHOOSING_FOOD;
 
 public class CreateOrderScreenImpl implements CreateOrderUI {
 
-    private FoodController foodController = new FoodControllerImpl();
-    private OrderController orderController = new OrderControllerImpl();
+    private OrderScreenController orderScreenController = new OrderScreenControllerImpl();
     private ScannerUI scannerUI = new ScannerUI();
 
     @Override
@@ -27,7 +24,7 @@ public class CreateOrderScreenImpl implements CreateOrderUI {
             System.out.println("Choose dish, input number to add to order");
             System.out.println("0 - to finish order or out from choosing food");
 
-            for (Food food : foodController.getMenu()) {
+            for (Food food : orderScreenController.getMenu()) {
                 System.out.println(food.toString());
             }
 
@@ -38,7 +35,7 @@ public class CreateOrderScreenImpl implements CreateOrderUI {
                 return;
             }
 
-            Order order = orderController.createOrder(user, userChoice);
+            Order order = orderScreenController.createOrder(user, userChoice);
 
             while (true) {
 
@@ -53,11 +50,11 @@ public class CreateOrderScreenImpl implements CreateOrderUI {
                     }
                     WaitMessageDemonThread.stopPrintingWaitMessage();
                     System.out.println("Your order data: ");
-                    orderController.getOrderData(order);
+                    orderScreenController.getOrderData(order);
                     break;
                 }
 
-                orderController.addFoodToOrder(order, userChoice);
+                orderScreenController.addFoodToOrder(order, userChoice);
 
             }
         } catch (FoodExistException e) {
