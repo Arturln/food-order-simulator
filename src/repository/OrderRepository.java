@@ -12,7 +12,7 @@ public interface OrderRepository {
 
     Order create(Order order);
 
-    void addFood(Order order, int foodID);
+    void update(Order updatedOrder);
 
     List<Food> getFoods(Order order);
 

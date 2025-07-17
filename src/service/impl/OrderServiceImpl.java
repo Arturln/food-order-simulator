@@ -32,7 +32,8 @@ public class OrderServiceImpl implements OrderService {
         if (foodID > foodRepository.getFoodList().size() || foodID < 1) {
             throw new FoodExistException("Food not exist");
         }
-        orderRepository.addFood(order, foodID);
+        order.addFoodToOrder(foodRepository.read(foodID));
+        orderRepository.update(order);
     }
 
     @Override

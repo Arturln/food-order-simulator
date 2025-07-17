@@ -40,8 +40,13 @@ public class OrderRepositoryImpl implements OrderRepository {
     }
 
     @Override
-    public void addFood(Order order, int foodID) {
-        order.addFoodToOrder(foodRepository.read(foodID));
+    public void update(Order updatedOrder) {
+        for (int i = 0; i < orderDataBase.size(); i++) {
+            Order currentOrder = orderDataBase.get(i);
+            if (currentOrder.getId() == updatedOrder.getId()) {
+                orderDataBase.set(i, updatedOrder);
+            }
+        }
         orderDataIO.writeFile(orderDataBase);
     }
 
