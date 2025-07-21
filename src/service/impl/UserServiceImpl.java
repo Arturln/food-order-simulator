@@ -9,7 +9,7 @@ import service.UserService;
 
 public class UserServiceImpl implements UserService {
 
-    private UserRepository userRepository = new UserRepositoryImpl();
+    private UserRepository userRepository = UserRepositoryImpl.getInstance();
 
     @Override
     public User createUser(String name, long phoneNumber) throws UserExistException {

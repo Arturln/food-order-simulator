@@ -33,7 +33,7 @@ public class MainMenuImpl implements MainMenuUI {
                     while (true) {
                         try {
                             WaitMessageDemonThread.startPrintingWaitMessage();
-                            Thread.sleep(2000);
+                            Thread.sleep(1000);
                             WaitMessageDemonThread.stopPrintingWaitMessage();
                             registerScreen.show();
                             break;
@@ -52,7 +52,7 @@ public class MainMenuImpl implements MainMenuUI {
                     while (true) {
                         try {
                             WaitMessageDemonThread.startPrintingWaitMessage();
-                            Thread.sleep(2000);
+                            Thread.sleep(1000);
                             WaitMessageDemonThread.stopPrintingWaitMessage();
                             logInScreen.show();
                             break;
@@ -70,7 +70,7 @@ public class MainMenuImpl implements MainMenuUI {
                 case LOG_OUT:
                     WaitMessageDemonThread.startPrintingWaitMessage();
                     try {
-                        Thread.sleep(2000);
+                        Thread.sleep(1000);
                     } catch (InterruptedException e) {
                         throw new RuntimeException(e);
                     }

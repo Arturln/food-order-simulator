@@ -11,13 +11,19 @@ import java.util.Objects;
 
 public class UserRepositoryImpl implements UserRepository {
 
+    private static final UserRepository INSTANCE = new UserRepositoryImpl();
     private IO<User> userDataIO = new UserDataIO();
-    private List<User> userDataBase = userDataIO.readFile();
+    private List<User> userDataBase;
 
     public UserRepositoryImpl() {
+        userDataBase = userDataIO.readFile();
         if (userDataBase == null) {
             userDataBase = new ArrayList<>();
         }
+    }
+
+    public static UserRepository getInstance() {
+        return INSTANCE;
     }
 
     @Override
@@ -39,6 +45,7 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public User getByPhoneNumber(long phoneNumber) {
+//        userDataBase = userDataIO.readFile();
         return userDataBase.stream()
                 .filter(user -> Objects.equals(user.getPhoneNumber(), phoneNumber))
                 .findAny()
